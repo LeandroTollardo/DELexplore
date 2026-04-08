@@ -1,0 +1,15 @@
+line-length = 88
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+# E501 line-too-long is handled by the formatter, not the linter
+ignore = ["E501"]
+
+[lint.per-file-ignores]
+# Tests can use assert and don't need strict naming
+"tests/**" = ["N802", "N803"]
+
+[format]
+quote-style = "double"
+indent-style = "space"

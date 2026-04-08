@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
     default=False,
     help="Enable debug logging.",
 )
-def cli(verbose: bool) -> None:
+def main(verbose: bool) -> None:
     """DELexplore — statistical analysis and hit ranking for DEL screening data."""
     level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(format="%(levelname)s %(name)s: %(message)s", level=level)
@@ -44,7 +44,7 @@ def cli(verbose: bool) -> None:
 # ---------------------------------------------------------------------------
 
 
-@cli.group()
+@main.group()
 def qc() -> None:
     """Data quality assessment commands."""
 
@@ -87,7 +87,7 @@ def qc_naive(config_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-@cli.group()
+@main.group()
 def analyse() -> None:
     """Enrichment scoring and hit ranking commands."""
 
@@ -184,7 +184,7 @@ def analyse_rank(config_path: Path, input_dir: Path, output_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-@cli.group()
+@main.group()
 def explore() -> None:
     """Chemical space visualisation and clustering commands."""
 
@@ -234,7 +234,7 @@ def explore_cluster(embedding_path: Path, output_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-@cli.command("library-assess")
+@main.command("library-assess")
 @click.option(
     "--config",
     "config_path",

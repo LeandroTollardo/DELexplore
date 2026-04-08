@@ -1,0 +1,50 @@
+# Version control
+.git/
+.github/
+
+# Virtual environment (rebuilt inside the image)
+.venv/
+
+# Python byte-code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Development / CI artefacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# Sequencing data (never bake into image — mount at runtime)
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.sam
+
+# Analysis results (generated at runtime, mount /results volume)
+results/
+experiments/
+output/
+
+# Editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Docs and non-essential files
+docs/
+*.md
+!README.md
+
+# Pre-commit config (not needed in image)
+.pre-commit-config.yaml
+.claudeignore
