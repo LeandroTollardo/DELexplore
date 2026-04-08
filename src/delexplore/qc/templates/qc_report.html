@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DELexplore QC Report — {{ experiment_name }}</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #222;
+      background: #f7f8fa;
+      padding: 24px;
+    }
+    h1 { font-size: 1.6rem; font-weight: 600; color: #111; margin-bottom: 4px; }
+    h2 { font-size: 1.1rem; font-weight: 600; color: #333; margin: 0 0 10px; }
+    p.subtitle { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+    a { color: #2563eb; }
+
+    /* ── Layout ── */
+    .container { max-width: 960px; margin: 0 auto; }
+    section { background: #fff; border: 1px solid #e2e4e9; border-radius: 8px;
+              padding: 20px 24px; margin-bottom: 20px; }
+
+    /* ── Overall badge ── */
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge.green  { background: #dcfce7; color: #166534; }
+    .badge.yellow { background: #fef9c3; color: #854d0e; }
+    .badge.red    { background: #fee2e2; color: #991b1b; }
+
+    /* ── Summary cards ── */
+    .cards { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+    .card {
+      flex: 1; min-width: 140px;
+      border-radius: 6px; padding: 12px 16px;
+      border: 1px solid #e2e4e9;
+    }
+    .card .label { font-size: 0.78rem; color: #666; text-transform: uppercase;
+                   letter-spacing: 0.04em; margin-bottom: 4px; }
+    .card .value { font-size: 1.3rem; font-weight: 700; }
+    .card.green  { background: #f0fdf4; border-color: #86efac; }
+    .card.yellow { background: #fefce8; border-color: #fde047; }
+    .card.red    { background: #fff1f2; border-color: #fca5a5; }
+    .card.green .value  { color: #166534; }
+    .card.yellow .value { color: #854d0e; }
+    .card.red .value    { color: #991b1b; }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { background: #f1f3f6; font-weight: 600; text-align: left;
+         padding: 7px 10px; border-bottom: 2px solid #e2e4e9; }
+    td { padding: 6px 10px; border-bottom: 1px solid #f0f1f3; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafbfc; }
+
+    /* ── Status dots ── */
+    .dot {
+      display: inline-block; width: 10px; height: 10px;
+      border-radius: 50%; margin-right: 6px; vertical-align: middle;
+    }
+    .dot.green  { background: #22c55e; }
+    .dot.yellow { background: #eab308; }
+    .dot.red    { background: #ef4444; }
+
+    /* ── Warnings ── */
+    .warnings { list-style: none; }
+    .warnings li {
+      padding: 7px 12px;
+      margin-bottom: 6px;
+      border-radius: 5px;
+      border-left: 4px solid #eab308;
+      background: #fefce8;
+      color: #713f12;
+      font-size: 0.88rem;
+    }
+    .warnings li::before { content: "⚠ "; }
+    .no-warnings { color: #15803d; font-weight: 600; }
+
+    /* ── Recommended levels ── */
+    .chip {
+      display: inline-block;
+      background: #dbeafe; color: #1e40af;
+      border-radius: 12px; padding: 2px 10px;
+      font-size: 0.82rem; font-weight: 600;
+      margin: 2px 4px 2px 0;
+    }
+
+    /* ── Mono footer ── */
+    footer { text-align: center; color: #999; font-size: 0.78rem; margin-top: 16px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>DELexplore QC Report</h1>
+  <p class="subtitle">Experiment: <strong>{{ experiment_name }}</strong>
+     &nbsp;|&nbsp; {{ n_cycles }}-cycle library</p>
+
+  <!-- ── Overall quality ── -->
+  <section>
+    <h2>Overall quality &nbsp;
+      <span class="badge {{ report.overall_quality }}">{{ report.overall_quality }}</span>
+    </h2>
+    <div class="cards">
+      <div class="card {{ report.overall_quality }}">
+        <div class="label">Overall</div>
+        <div class="value">{{ report.overall_quality | upper }}</div>
+      </div>
+      <div class="card">
+        <div class="label">Avg reads / selection</div>
+        <div class="value">{{ "{:,.0f}".format(report.mean_reads_per_selection) }}</div>
+      </div>
+      <div class="card">
+        <div class="label">Warnings</div>
+        <div class="value">{{ report.warnings | length }}</div>
+      </div>
+      <div class="card">
+        <div class="label">Library cycles</div>
+        <div class="value">{{ n_cycles }}</div>
+      </div>
+    </div>
+
+    <p style="margin-top:10px; font-size:0.88rem; color:#555;">
+      <strong>Recommended analysis levels:</strong>
+      {% for lvl in report.recommended_analysis_levels %}
+        <span class="chip">{{ lvl }}</span>
+      {% else %}
+        <span style="color:#991b1b">None — check warnings</span>
+      {% endfor %}
+    </p>
+  </section>
+
+  <!-- ── Sampling ratio ── -->
+  <section>
+    <h2>Sequencing depth (sampling ratio = reads / diversity)</h2>
+    <table>
+      <thead>
+        <tr><th>Level</th><th>Sampling ratio</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        {% for level, ratio in report.sampling_ratio.items() %}
+        <tr>
+          <td><code>{{ level }}</code></td>
+          <td>{{ ratio }}</td>
+          <td>
+            <span class="dot {{ report.sampling_ratio_status[level] }}"></span>
+            {{ report.sampling_ratio_status[level] | capitalize }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.8rem;color:#666;">
+      Thresholds: &gt;10 green &nbsp;|&nbsp; 1–10 yellow &nbsp;|&nbsp; &lt;1 red
+    </p>
+  </section>
+
+  <!-- ── Replicate correlation ── -->
+  <section>
+    <h2>Replicate correlation (mean pairwise Pearson r)</h2>
+    {% if report.replicate_correlation %}
+    <table>
+      <thead>
+        <tr><th>Group</th><th>Mean r</th><th>Pairs</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        {% for group, r in report.replicate_correlation.items() %}
+        <tr>
+          <td>{{ group }}</td>
+          <td>{% if r == r %}{{ "%.4f" | format(r) }}{% else %}n/a{% endif %}</td>
+          <td>{{ report.replicate_correlation_status.get(group, {}) and report.get('n_pairs', {}).get(group, '—') }}</td>
+          <td>
+            <span class="dot {{ report.replicate_correlation_status.get(group, 'yellow') }}"></span>
+            {{ report.replicate_correlation_status.get(group, 'unknown') | capitalize }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.8rem;color:#666;">
+      Thresholds: &gt;0.70 green &nbsp;|&nbsp; 0.50–0.70 yellow &nbsp;|&nbsp; &lt;0.50 red
+    </p>
+    {% else %}
+    <p style="color:#666;font-style:italic">No metadata provided — correlation not assessed.</p>
+    {% endif %}
+  </section>
+
+  <!-- ── BB coverage ── -->
+  <section>
+    <h2>Building block coverage</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Observed BBs</th>
+          <th>Expected BBs</th>
+          <th>Coverage</th>
+          <th>Coverage status</th>
+          <th>Max single-BB frac.</th>
+          <th>Frac. status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for col in report.bb_coverage %}
+        <tr>
+          <td><code>{{ col }}</code></td>
+          <td>{{ report.bb_coverage_n_observed[col] }}</td>
+          <td>{{ report.bb_coverage_n_expected[col] }}</td>
+          <td>{{ "%.1f" | format(report.bb_coverage[col] * 100) }}%</td>
+          <td>
+            <span class="dot {{ report.bb_coverage_status[col] }}"></span>
+            {{ report.bb_coverage_status[col] | capitalize }}
+          </td>
+          <td>{{ "%.1f" | format(report.max_bb_fraction[col] * 100) }}%</td>
+          <td>
+            <span class="dot {{ report.max_bb_fraction_status[col] }}"></span>
+            {{ report.max_bb_fraction_status[col] | capitalize }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.8rem;color:#666;">
+      Coverage thresholds: &gt;95% green &nbsp;|&nbsp; 80–95% yellow &nbsp;|&nbsp; &lt;80% red &nbsp;
+      Max frac. thresholds: &lt;5% green &nbsp;|&nbsp; 5–15% yellow &nbsp;|&nbsp; &gt;15% red
+    </p>
+  </section>
+
+  <!-- ── BB uniformity ── -->
+  <section>
+    <h2>Building block synthesis uniformity</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>CV (std/mean)</th>
+          <th>Gini</th>
+          <th>Over-represented BBs</th>
+          <th>Zero-count BBs</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for col in report.bb_uniformity_cv %}
+        <tr>
+          <td><code>{{ col }}</code></td>
+          <td>{{ "%.3f" | format(report.bb_uniformity_cv[col]) }}</td>
+          <td>{{ "%.3f" | format(report.bb_uniformity_gini[col]) }}</td>
+          <td>
+            {% set highs = report.bb_outliers_high[col] %}
+            {% if highs %}
+              {{ highs[:5] | join(", ") }}{% if highs | length > 5 %} …{% endif %}
+            {% else %}
+              <span style="color:#15803d">None</span>
+            {% endif %}
+          </td>
+          <td>
+            {% set zeros = report.bb_outliers_zero[col] %}
+            {% if zeros %}
+              <span style="color:#991b1b">{{ zeros[:5] | join(", ") }}{% if zeros | length > 5 %} …{% endif %}</span>
+            {% else %}
+              <span style="color:#15803d">None</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.8rem;color:#666;">
+      CV &lt; 0.5 is good; &gt; 1.0 suggests significant synthesis bias. Gini closer to 0 = more uniform.
+    </p>
+  </section>
+
+  <!-- ── Warnings ── -->
+  <section>
+    <h2>Warnings</h2>
+    {% if report.warnings %}
+    <ul class="warnings">
+      {% for w in report.warnings %}
+      <li>{{ w }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-warnings">✓ No warnings — data quality looks good.</p>
+    {% endif %}
+  </section>
+
+  <footer>
+    Generated by DELexplore QC &nbsp;|&nbsp; Pure Python, no R
+  </footer>
+
+</div>
+</body>
+</html>
