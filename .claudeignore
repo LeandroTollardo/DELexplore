@@ -1,0 +1,47 @@
+# Virtual environment
+.venv/
+
+# Sequencing data (can be multi-GB)
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.sam
+
+# Large intermediate data
+*.parquet
+!tests/data/**/*.parquet
+
+# Analysis results (generated output, not source)
+results/
+experiments/
+output/
+
+# Large binary lock file (let Claude read pyproject.toml instead)
+uv.lock
+
+# Compiled Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Test artefacts
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# mypy / ruff caches
+.mypy_cache/
+.ruff_cache/
+
+# Editor artefacts
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

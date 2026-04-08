@@ -1,0 +1,5650 @@
+experiment:
+  name: template
+  fastq_path: campaign.fastq.gz
+  save_dir: experiments
+  num_cores: 14
+selections:
+  AG24_4:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: no_protein
+    target: .nan
+    S0: ACACAC
+    S1: TCGATA
+    ids:
+    - 0
+    - 0
+  AG24_5:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: no_protein
+    target: .nan
+    S0: ACAGCA
+    S1: TCGATA
+    ids:
+    - 1
+    - 0
+  AG24_6:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: no_protein
+    target: .nan
+    S0: ACATGT
+    S1: TCGATA
+    ids:
+    - 2
+    - 0
+  AG24_13:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: A
+    S0: ACGACG
+    S1: TCGATA
+    ids:
+    - 3
+    - 0
+  AG24_14:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: A
+    S0: ACGCGA
+    S1: TCGATA
+    ids:
+    - 4
+    - 0
+  AG24_15:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: A
+    S0: ACTAGC
+    S1: TCGATA
+    ids:
+    - 5
+    - 0
+  AG24_22:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: B
+    S0: ACTCTG
+    S1: TCGATA
+    ids:
+    - 6
+    - 0
+  AG24_23:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: B
+    S0: ACTGAT
+    S1: TCGATA
+    ids:
+    - 7
+    - 0
+  AG24_24:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: B
+    S0: AGACTA
+    S1: TCGATA
+    ids:
+    - 8
+    - 0
+  AG24_31:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: no_protein
+    target: .nan
+    S0: AGAGAG
+    S1: TCGATA
+    ids:
+    - 9
+    - 0
+  AG24_32:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: no_protein
+    target: .nan
+    S0: TAGATG
+    S1: TCGATA
+    ids:
+    - 10
+    - 0
+  AG24_33:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: no_protein
+    target: .nan
+    S0: TAGTGT
+    S1: TCGATA
+    ids:
+    - 11
+    - 0
+  AG24_40:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: C
+    S0: TATCAC
+    S1: TCGATA
+    ids:
+    - 12
+    - 0
+  AG24_41:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: C
+    S0: TCATAG
+    S1: TCGATA
+    ids:
+    - 13
+    - 0
+  AG24_42:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: C
+    S0: TCGTCA
+    S1: TCGATA
+    ids:
+    - 14
+    - 0
+  AG24_49:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: D
+    S0: TCTACT
+    S1: TCGATA
+    ids:
+    - 15
+    - 0
+  AG24_50:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: D
+    S0: TCTGTA
+    S1: TCGATA
+    ids:
+    - 16
+    - 0
+  AG24_51:
+    operator: A. Smith
+    date: '2024-09-26'
+    group: protein
+    target: D
+    S0: TGACAT
+    S1: TCGATA
+    ids:
+    - 17
+    - 0
+  AG24_58:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: no_protein
+    target: .nan
+    S0: TGCAGC
+    S1: TCGATA
+    ids:
+    - 18
+    - 0
+  AG24_59:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: no_protein
+    target: .nan
+    S0: TGCGCG
+    S1: TCGATA
+    ids:
+    - 19
+    - 0
+  AG24_60:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: no_protein
+    target: .nan
+    S0: GCTACT
+    S1: TCGATA
+    ids:
+    - 20
+    - 0
+  AG24_67:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: protein
+    target: E
+    S0: GCACAT
+    S1: TCGATA
+    ids:
+    - 21
+    - 0
+  AG24_68:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: protein
+    target: E
+    S0: GAGTGT
+    S1: TCGATA
+    ids:
+    - 22
+    - 0
+  AG24_69:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: protein
+    target: E
+    S0: GTGCGA
+    S1: TCGATA
+    ids:
+    - 23
+    - 0
+  AG24_76:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: protein
+    target: E
+    S0: GCCGCT
+    S1: TCGATA
+    ids:
+    - 24
+    - 0
+  AG24_77:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: protein
+    target: E
+    S0: GAAGAT
+    S1: TCGATA
+    ids:
+    - 25
+    - 0
+  AG24_78:
+    operator: A. Smith
+    date: '2024-10-17'
+    group: protein
+    target: E
+    S0: GTTCAG
+    S1: TCGATA
+    ids:
+    - 26
+    - 0
+library:
+  products:
+  - product_1
+  - product_1B
+  - product_2
+  educts:
+  - product_1
+  - product_1B
+  - scaffold_1
+  reactions:
+  - ABF1
+  - ABF2
+  - CuAAC
+  - SR
+  bb_edges:
+  - - ABF1
+    - product_1
+  - - ABF2
+    - product_2
+  - - B0
+    - ABF1
+  - - B1
+    - ABF2
+  - - B1
+    - CuAAC
+  - - CuAAC
+    - product_2
+  - - product_1
+    - CuAAC
+  - - product_1B
+    - ABF2
+  - - scaffold_1
+    - ABF1
+  other_edges:
+  - - SR
+    - product_1B
+  - - product_1
+    - SR
+  building_blocks:
+  - B0
+  - B1
+catalog:
+  compounds:
+    scaffold_1:
+      smiles: O=C(N)CCC(N=[N+]=[N-])C(O)=O
+  reactions:
+    ABF1:
+      smirks: '[CX3:1](=[O:2])[OX2;H1].[N;$([N;H1,H2]),$([N;H3]);!$([N;H1,H2][S]);!$([NX3][CX3](=[OX1])[#6]);!$([NX3][CX3](=[OX1])[OX2]):4]>>[CX3:1](=[O:2])[N:4]'
+    ABF2:
+      smirks: '[CX3:1](=[O:2])[OX2;H1].[N;$([N;H1,H2]),$([N;H3]);!$([N;H1,H2][S]);!$([NX3][CX3](=[OX1])[#6]);!$([NX3][CX3](=[OX1])[OX2]):4]>>[CX3:1](=[O:2])[N:4]'
+    SR:
+      smirks: '[#6:1][$([NX2-][NX2+]#[NX1]),$([NX2]=[NX2+]=[NX1-])]>>[#6:1][N;H2]'
+    CuAAC:
+      smirks: '[CX2:1]#[CX2;H1:2].[N:3]=[N+:4]=[N-:5]>>[C:1]1=[C:2][N-0:3][N-0:4]=[N-0:5]1'
+structure:
+- name: S0
+  type: selection
+  max_error_rate: 0.0
+  indels: false
+- name: C0
+  type: constant
+  max_error_rate: 1.01
+  indels: false
+- name: B0
+  type: building_block
+  max_error_rate: 0.0
+  indels: false
+- name: C1
+  type: constant
+  max_error_rate: 1.01
+  indels: false
+- name: B1
+  type: building_block
+  max_error_rate: 0.0
+  indels: false
+- name: C2
+  type: constant
+  max_error_rate: 1.01
+  indels: false
+- name: S1
+  type: selection
+  max_error_rate: 0.0
+  indels: false
+whitelists:
+  C0:
+  - codon: GGAGCTTCTGAATTCTGTGTGCTG
+  C1:
+  - codon: CGAGCGTCAGGCAGCCTGTGTGCTG
+  C2:
+  - codon: CGAGTCCCATGGCGC
+  B0:
+  - index: 0
+    codon: ATCTAT
+    smiles: NCC1=CC=CS1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 1
+    codon: AGAATA
+    smiles: COC1=CC=C(OC)C(CN)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 2
+    codon: TCATTA
+    smiles: NCCCSCC1=CC=C(F)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 3
+    codon: TTGACT
+    smiles: NCC1(CC1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 4
+    codon: CGCTCT
+    smiles: CC(C)(CN)CN1CCCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 5
+    codon: TGCAAC
+    smiles: C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 6
+    codon: GCCGCT
+    smiles: NC1CCCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 7
+    codon: ATAGCT
+    smiles: COC1=CC(CCN)=C(OC)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 8
+    codon: CACGCA
+    smiles: NCC1CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 9
+    codon: TACCGG
+    smiles: CN1N=C(C)C(CN)=C1C
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 10
+    codon: TGGTTC
+    smiles: CCN1CCCC1CN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 11
+    codon: ACCACG
+    smiles: C1CN(CCN1)C1=NC=CC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 12
+    codon: TGGTCA
+    smiles: CC(CN)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 13
+    codon: AAGTAC
+    smiles: NCCN1CCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 14
+    codon: AGCCGC
+    smiles: NCC1CCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 15
+    codon: ATCAAG
+    smiles: NCC1=CC(=CC=C1)C(F)(F)F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 16
+    codon: TCCTAG
+    smiles: NCC1=CC=C(Cl)C(Cl)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 17
+    codon: ACTATT
+    smiles: NCC1=C(C=CC=C1)C(F)(F)F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 18
+    codon: CCTAAT
+    smiles: NCC1=CC=CC(=C1)N1CCOCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 19
+    codon: AGTAAT
+    smiles: CC1=NC=CN1C1=CC=C(CN)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 20
+    codon: CTAAGT
+    smiles: CC1=NC=CN1C1=C(CN)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 21
+    codon: GAAGAT
+    smiles: NCC1=CC(F)=C(F)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 22
+    codon: GTTCAG
+    smiles: NCCN1CCCC(C1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 23
+    codon: ACTGAC
+    smiles: CC(C)(C)C1=CC=C(CN)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 24
+    codon: GAATGC
+    smiles: NCC1=CSC(=N1)C1=CC=CS1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 25
+    codon: AATTGG
+    smiles: NCC1=C(C=CC=C1)N1CCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 26
+    codon: GATGCA
+    smiles: NCC1=CC=C(F)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 27
+    codon: CGTGCG
+    smiles: NCC1CCN(CC1)C1=NC=CC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 28
+    codon: TCACTT
+    smiles: NCC1=CC=CN=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 29
+    codon: GTCACT
+    smiles: NCC1=CC=C(N=C1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 30
+    codon: GTCTAA
+    smiles: CC1=NN(N=C1CN)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 31
+    codon: AATCTC
+    smiles: CC(N)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 32
+    codon: TCTTAA
+    smiles: NCC1(CCOCC1)C1=CC=CS1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 33
+    codon: CTTGGA
+    smiles: Cl.Cl.NC1CN2CCC1CC2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 34
+    codon: CCATAA
+    smiles: CC1(C)C2CCC1(C)C(N)C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 35
+    codon: GAGACA
+    smiles: CCN(CC)CCNC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 36
+    codon: GTGATT
+    smiles: CNCC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 37
+    codon: CGGCAC
+    smiles: CN1C=C(CN)C2=CC=CC=C12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 38
+    codon: GCACGA
+    smiles: CCN1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 39
+    codon: ACGTTG
+    smiles: CCOC(=O)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 40
+    codon: TCAGAT
+    smiles: CC(C)(C)[C@@H](N)C
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 41
+    codon: CTCGAT
+    smiles: C1CC2=C(CN1)C=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 42
+    codon: CAGACT
+    smiles: NCC1CCCO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 43
+    codon: TACTCA
+    smiles: NC1CCCC2=C1C=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 44
+    codon: TAGCAC
+    smiles: NC(C1=CC=CC=C1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 45
+    codon: ACACGG
+    smiles: NC1=C(C=CC=C1)CN(C)C2CCCCC2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 46
+    codon: AGTTCT
+    smiles: NCCC1=CC(=CC=C1)C(F)(F)F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 47
+    codon: GCGCAC
+    smiles: NCCC1=CC(Br)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 48
+    codon: TCGATT
+    smiles: CC1=CC=CC=C1CCN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 49
+    codon: CTCCGC
+    smiles: NC1=CC=C(OC2=CC=CC=C2)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 50
+    codon: TGAGCA
+    smiles: NCCC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 51
+    codon: TGCCAG
+    smiles: CC(C)OC1=CC=CC(CCN)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 52
+    codon: GAGAAG
+    smiles: CC1=CC=CC(CCN)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 53
+    codon: CATCTA
+    smiles: Cl.FC(F)(F)C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 54
+    codon: GTAGCA
+    smiles: Cl.C1CC2CNCC2C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 55
+    codon: GTTAGC
+    smiles: O=C(N1CCNCC1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 56
+    codon: TATATC
+    smiles: C1CN(CCN1)C1=CC=NC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 57
+    codon: CTGTAC
+    smiles: COC1=CC=C(N)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 58
+    codon: ATGTTA
+    smiles: COC1=CC=CC=C1N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 59
+    codon: GCTCGC
+    smiles: CC1=CC=CC=C1N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 60
+    codon: TCTCTC
+    smiles: NCCS(O)(=O)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 61
+    codon: TTAATA
+    smiles: CNCCC1=CC=CC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 62
+    codon: CCAATC
+    smiles: CN(C)C(=O)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 63
+    codon: TTGCTT
+    smiles: FC(F)(F)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 64
+    codon: TTGTGG
+    smiles: Cl.NC1C2CC3CC(C2)C[C@@H]1C3
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 65
+    codon: TGAGGC
+    smiles: Cl.NC1CC2=CC=CC=C2C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 66
+    codon: AACATT
+    smiles: Cl.N#CC1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 67
+    codon: GATCGA
+    smiles: C1CC(CN1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 68
+    codon: GCCTCA
+    smiles: C1CN(CCN1)C1=CC=CC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 69
+    codon: TAGAGG
+    smiles: NCCC1=CC=C(F)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 70
+    codon: TATGGA
+    smiles: CCOCCCN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 71
+    codon: TAATGT
+    smiles: NC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 72
+    codon: CCTCAC
+    smiles: NC1CCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 73
+    codon: GTCATA
+    smiles: FC1=CC2=C(C=C1)C(=NO2)C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 74
+    codon: TCTTGC
+    smiles: CC(=O)NCCN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 75
+    codon: CTATAT
+    smiles: CC(C)(C)OC(=O)NCCN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 76
+    codon: ATGAGG
+    smiles: Cl.Cl.CCCN1C=NN=C1CN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 77
+    codon: GTAACG
+    smiles: CC(C)C1=CSC(CCN)=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 78
+    codon: TAAGCT
+    smiles: NCC1=NOC(=C1)C1=C(Cl)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 79
+    codon: ATTCGC
+    smiles: CCOC1=C(OCC)C=C(CCCN)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 80
+    codon: CGTATA
+    smiles: Cl.Cl.CC1=CN2C=C(CN)N=C2C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 81
+    codon: GACAAC
+    smiles: NCC1CCCN(C1)C(=O)C1CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 82
+    codon: TGAACG
+    smiles: NCC1=CC=C2OCCOC2=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 83
+    codon: CACGTT
+    smiles: C1CNC2=C(C1)C=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 84
+    codon: GTGAGA
+    smiles: COC1=C(CCN)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 85
+    codon: ACTGTG
+    smiles: C1CC2=CC=CC=C2N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 86
+    codon: ATTAGA
+    smiles: NCCP(O)(O)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 87
+    codon: TGGCGT
+    smiles: N.Cl
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 88
+    codon: CAGCAG
+    smiles: NC1CCCCC1C1CCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 89
+    codon: TTCTGA
+    smiles: Cl.CN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 90
+    codon: TTCACA
+    smiles: NC(=O)C1=CC=C(N)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 91
+    codon: AATGGT
+    smiles: NC1=CC(OC2=CC=CC=C2)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 92
+    codon: CTACAA
+    smiles: NC1C(O)CC2=CC=CC=C12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 93
+    codon: CTCAGG
+    smiles: NC1=CC=C(C=C1)S(N)(=O)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 94
+    codon: GACGTG
+    smiles: CC1=CC(N)=CC=C1Br
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 95
+    codon: CTCCTA
+    smiles: NC1=CC=C(C=C1)S(O)(=O)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 96
+    codon: AATCAG
+    smiles: NC1=CC=CC(=C1)C(F)(F)F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 97
+    codon: GTCCTG
+    smiles: CC1=CC=C(N)C=C1F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 98
+    codon: CGCTTA
+    smiles: COC1=CC=C(CN)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 99
+    codon: CTATCG
+    smiles: NCC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 100
+    codon: CCACCA
+    smiles: NCC1(CCSC1)N1CCOCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 101
+    codon: AGTGAA
+    smiles: NC1=C(OCC(F)F)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 102
+    codon: AAGAGC
+    smiles: CC1=CC=C(N)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 103
+    codon: TCAACT
+    smiles: NC1=CC(C#C)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 104
+    codon: AGATAC
+    smiles: NOC(C1=CC=CC=C1)(C2=CC=CC=C2)C3=CC=CC=C3
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 105
+    codon: AGAGCG
+    smiles: NC1(C#C)CCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 106
+    codon: TGTCGA
+    smiles: NC1=CC2=C(SC=N2)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 107
+    codon: ACGGAA
+    smiles: NC1=C(CN2C=NC=N2)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 108
+    codon: CAGGAA
+    smiles: CC1=NN(C2CCCNC2)C(C)=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 109
+    codon: CCAAGG
+    smiles: Cl.N[C@@H]1CCCN(C1)C(=O)CCC(F)(F)F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 110
+    codon: GAGCGG
+    smiles: C#CCNC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 111
+    codon: GAACTT
+    smiles: CC1=NC(OC2CCNCC2)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 112
+    codon: AAGGCA
+    smiles: NC1CCN(CC1)C(=O)C1=C(F)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 113
+    codon: ATTCAT
+    smiles: NS(=O)(=O)C1=C2CCNCC2=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 114
+    codon: GTGGAA
+    smiles: CC1=C2OC(=NC2=CC=C1)C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 115
+    codon: TGCGCG
+    smiles: CN1C=C(C=N1)N1CCCC(N)C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 116
+    codon: GTACAT
+    smiles: NC1CCN(CC2=NC3=C(N2)C=CC=C3)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 117
+    codon: GAAGTC
+    smiles: CN1CCC2(CCNCC2)C1=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 118
+    codon: TAGATA
+    smiles: C(C1=NN=C2CNCCN12)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 119
+    codon: CACCAA
+    smiles: ClC1=CN=C(OC2CCCNC2)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 120
+    codon: CCTCGT
+    smiles: COC1=CC(=CC(OC)=C1)N1CC(N)CC1=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 121
+    codon: AGGTGA
+    smiles: CC1=NN(C(C)=N1)C1=C(N)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 122
+    codon: TCCAGC
+    smiles: NC(CC(N)=O)C1CCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 123
+    codon: GATCAC
+    smiles: NC1CCN(C1)C(=O)COC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 124
+    codon: CCAGCT
+    smiles: C1CC1C1=NNC(=C1)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 125
+    codon: CACGAG
+    smiles: CN1C=C(CN2CCNCC2)C=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 126
+    codon: ACGATC
+    smiles: N[C@@H]1CCC(N[C@H]1C2=CC=CC=C2)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 127
+    codon: GCGCTG
+    smiles: CC1=C(N)C=C(C=C1)C1=NC=CN=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 128
+    codon: AGATGG
+    smiles: CN1C=C(C=N1)[C@H]1OCCC[C@@H]1N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 129
+    codon: CCAGAC
+    smiles: CN1N=CC=C1N1CCCC(N)C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 130
+    codon: GTGTCT
+    smiles: O=C1C=CC=CN1CCN1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 131
+    codon: TCACAG
+    smiles: Cl.Cl.NC1CCN2CCCCC2C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 132
+    codon: ATGCCT
+    smiles: NC1CCN(CC1)C1=C(C=CC=C1)C(N)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 133
+    codon: GCTATG
+    smiles: C1CN(CCN1)C1=C2C=CC=CC2=NC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 134
+    codon: CGCCTT
+    smiles: CC1C(C)CCCC1N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 135
+    codon: GATAGT
+    smiles: Cl.Cl.C1CNC(C1)C1=NN=C2C=CC=CN12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 136
+    codon: AGCGTC
+    smiles: CNC(=O)C1=CC(N)=C(OC)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 137
+    codon: TGTTGT
+    smiles: NC1=CC(CN2CCNC(=O)C2)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 138
+    codon: GTGTTG
+    smiles: NCCC1=CC=CS1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 139
+    codon: TGCAGA
+    smiles: FC(F)(F)COC1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 140
+    codon: TACAAT
+    smiles: CN1CCN(C)C(=O)C2=C1C=C(N)C=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 141
+    codon: TCGAGA
+    smiles: NCC1CCCN2CCCCC12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 142
+    codon: CCACTG
+    smiles: CC(C1=CC=CC=C1)(C2=CC=CC=C2)CN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 143
+    codon: TTGCCG
+    smiles: CC1=NC2=C(C=CC=C2)C(=C1)C(=O)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 144
+    codon: TCGGCG
+    smiles: NC1CCCN(C1)C(=O)CC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 145
+    codon: GCGTTA
+    smiles: NC1=CC2=C(C=C1)N(N=C2)C(F)F
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 146
+    codon: TTACTC
+    smiles: CN1C=C(CN2CCNCC2)C=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 147
+    codon: CTAGTA
+    smiles: CN1C=C(C(N)=O)C(=N1)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 148
+    codon: CGATGT
+    smiles: NC1CCC2=C(C1)N=C(N2)C1CCCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 149
+    codon: CCTTGG
+    smiles: CN1C=CN=C1N1CCC(N)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 150
+    codon: CCGATA
+    smiles: O=C(N1CCNCC1)C1=C2C=CC=CC2=NN1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 151
+    codon: TCTGCT
+    smiles: Cl.Cl.O=C(N1CCNCC1)C1=CC=NC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 152
+    codon: CCTGAG
+    smiles: N[C@H]1CCO[C@@H]1C1=CN=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 153
+    codon: TTCGTT
+    smiles: COC1=C2CCNCC2=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 154
+    codon: TTCCAA
+    smiles: Cl.NC1(CC1)C1=CC(Cl)=C(Cl)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 155
+    codon: CACTCG
+    smiles: NC1CCN(CC2=CC=CC=C2)CC1CO
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 156
+    codon: TCCGGT
+    smiles: CN1CCN(CC1)C1=CC(N)=CC(C)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 157
+    codon: TGTCTT
+    smiles: NC1CCN(CCC2=CC=NC=C2)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 158
+    codon: CAGTCA
+    smiles: FC1=CC2=C(C=C1)N=C(O2)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 159
+    codon: CGAGAG
+    smiles: C1CC(CN1)N1C=NC2=C1CCCC2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 160
+    codon: GCGGAT
+    smiles: CN(C(C)=O)C1=CC(N)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 161
+    codon: ATAACA
+    smiles: CC(C)CC1=NN=C2CNCCN12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 162
+    codon: CACATA
+    smiles: CC1=CN=CN1C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 163
+    codon: TCGCGG
+    smiles: FC1=C(N=CC=C1)N1CCCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 164
+    codon: ATAGGA
+    smiles: NCC1=CC=CC=C1N2CCOCC2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 165
+    codon: ATTATG
+    smiles: CC1=C(OC2CCNC2)C=CC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 166
+    codon: TTCATC
+    smiles: NC1=CC(CCN2CCCC2)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 167
+    codon: ATCGGC
+    smiles: O=S(=O)(NC1=CC=CC=C1)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 168
+    codon: ACCTGT
+    smiles: FC(F)C1=NC(=NO1)C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 169
+    codon: GCATGT
+    smiles: CCN1CC2=C(C1)C=C(N)C=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 170
+    codon: TCCATA
+    smiles: CC1=CN=C(S1)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 171
+    codon: GCCAGT
+    smiles: CC1=NC(CC2CCCNC2)=NO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 172
+    codon: GCTCTT
+    smiles: CCN1C=CN=C1[C@H]1OCCC[C@@H]1N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 173
+    codon: CATGTG
+    smiles: NC1CN(CC(F)(F)F)C(=O)C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 174
+    codon: TTGAAC
+    smiles: CC(=O)NC1=NN(C=C1)C1CCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 175
+    codon: GCCTGG
+    smiles: CCC(CC)(C#C)N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 176
+    codon: CATAGA
+    smiles: NC1CN(CC2=CC=CC=C2)CCC1CO
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 177
+    codon: ATCGCG
+    smiles: C(C1CCCNC1)N1C=NC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 178
+    codon: TACCTC
+    smiles: NC1CCC(CC1)C1=NC=NO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 179
+    codon: TAGTGA
+    smiles: NC1CCC2=NN=C(N2C1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 180
+    codon: TGTATG
+    smiles: C#CCN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 181
+    codon: TACTAC
+    smiles: FC(F)(F)C1=NN=C2CNCCN12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 182
+    codon: TGACAA
+    smiles: CC1=C(F)C=CC(=C1)C1CNCCO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 183
+    codon: TGAATC
+    smiles: O=C(NC1=NC=CS1)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 184
+    codon: ATAGAC
+    smiles: NC1CCN(CC1)C(=O)C1CCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 185
+    codon: GTGCGC
+    smiles: O=C1CCCCN1C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 186
+    codon: TGTGTA
+    smiles: CC1=C(SC=N1)C(=O)N1CCCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 187
+    codon: AAGCTG
+    smiles: NC1CCN(C1)C(=O)C1=CC(F)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 188
+    codon: GCGGCA
+    smiles: CC1=CN=C(S1)C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 189
+    codon: CAGAAC
+    smiles: O=C1NC2=C(C=CC=C2)C11CCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 190
+    codon: AGGCAT
+    smiles: CN(C)C(=O)CC1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 191
+    codon: TAGTTG
+    smiles: C1CN(CCN1)C1=CC2=C(C=CC=C2)N=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 192
+    codon: ACGACA
+    smiles: CN1C=CN=C1[C@H]1OCCC[C@@H]1N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 193
+    codon: CGGATC
+    smiles: CNC(=O)C1=NN(C=C1)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 194
+    codon: AGCACT
+    smiles: NC1CCC2=NN=C(CC3=CC=CC=C3)N2C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 195
+    codon: TATCCA
+    smiles: FC(F)(F)CC(=O)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 196
+    codon: CGCACG
+    smiles: NC1=CC(C)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 197
+    codon: CCATGC
+    smiles: CC1=NC=C(CN2CCNCC2)S1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 198
+    codon: AACAGG
+    smiles: N[C@H]1CCC[C@H]1OC1=C(F)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 199
+    codon: CATTAG
+    smiles: C1CC2=C(CN1)C=NC(=N2)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 200
+    codon: GTTCCA
+    smiles: NC1=CC(F)=C(C=C1)C1=NN=CO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 201
+    codon: AGCATG
+    smiles: CC(N)C1CN(CC2=CC=CC=C2)CCO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 202
+    codon: TCGCCA
+    smiles: CC1=C(C(C)=NN1)C1=C(N)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 203
+    codon: GAATCA
+    smiles: O=C1CCCCN1C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 204
+    codon: TGATCT
+    smiles: CC1=NNC(=C1)N1CCC(N)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 205
+    codon: AACTTA
+    smiles: CC1=NN=C(O1)C1CC2=C(CN1)C=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 206
+    codon: TCGGTC
+    smiles: NC(=O)C1=CN(N=C1C1CCCNC1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 207
+    codon: ATAGTG
+    smiles: O=C1CCCN1CC1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 208
+    codon: CGCGGT
+    smiles: CC1=NNC=C1C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 209
+    codon: AACTAG
+    smiles: NC1CN(C2CCCCC2)C(=O)C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 210
+    codon: AGCGAG
+    smiles: FC(F)(F)CN1CCCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 211
+    codon: CAGTTC
+    smiles: CC(=O)NC1=CNN=C1C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 212
+    codon: TCTCCG
+    smiles: CC1=NN(CC2CNCCO2)C(C)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 213
+    codon: CCAGGA
+    smiles: N[C@@H](CC1=CNC=N1)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 214
+    codon: GAGCCT
+    smiles: CCN1CC2=C(C1)C(N)=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 215
+    codon: CAGTAT
+    smiles: CC1=CC(=CC=C1)C(=O)N1CCCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 216
+    codon: TGGTAG
+    smiles: CN1C=CN=C1CC1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 217
+    codon: CGCGTG
+    smiles: C(C1CCNC1)N1CCOCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 218
+    codon: AAGACG
+    smiles: CN(C)C(=O)C1=C(F)C=CC(N)=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 219
+    codon: CCTTCT
+    smiles: CC1=CN(CC2CCNCC2)N=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 220
+    codon: ATGGAT
+    smiles: FC1=CC=C(C=C1)N1CCCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 221
+    codon: ATATTC
+    smiles: N[C@@H](CCC(OC)=O)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 222
+    codon: TGATGA
+    smiles: C(OC1CCNCC1)C1CCCCO1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 223
+    codon: TGGAGC
+    smiles: NC1CCN(C1)C1=C(C=CC=C1)C(N)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 224
+    codon: GCGAGG
+    smiles: C(C1CCOCC1)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 225
+    codon: CCTGTC
+    smiles: N[C@@H]1CCCC[C@H]1OCC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 226
+    codon: CTTCGG
+    smiles: CS(=O)(=O)NC1=C2CCNCC2=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 227
+    codon: TCGCAT
+    smiles: C(N1CCNCC1)C1=CSC=N1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 228
+    codon: AGTAGG
+    smiles: FC(F)(F)CC1=NN=C2CNCCN12
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 229
+    codon: CTGACA
+    smiles: CN1C2CCC1CC(C2)N1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 230
+    codon: CGTTAA
+    smiles: CN(C)CCN1CCCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 231
+    codon: AAGTCT
+    smiles: NNC(OC(C)(C)C)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 232
+    codon: CATCCT
+    smiles: N[C@H]1CCCO[C@@H]1C1=CC=NC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 233
+    codon: ACCAGA
+    smiles: CC1=NC=C(C=C1)C1CCNCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 234
+    codon: CTACTT
+    smiles: NC1CCN(C2CCOC2)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 235
+    codon: GATGTT
+    smiles: C1CCCN1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 236
+    codon: AGGAGT
+    smiles: CC(C)N1C=C(C=N1)[C@@H]1CNC[C@H]1CO
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 237
+    codon: CTGCTC
+    smiles: NC1CCN(CC1)CC2=CNC3=C2C=CC=N3
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 238
+    codon: GCAGTG
+    smiles: N#CC1=CC=C(CN)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 239
+    codon: GCTACT
+    smiles: CN1CCNCC1C1=NC=CN1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 240
+    codon: TGTACA
+    smiles: C(OC1CCNC1)C1=NC=CS1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 241
+    codon: AGTCGT
+    smiles: C1CC(=CCN1)C1=CC2=C(N1)N=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 242
+    codon: GAGTGT
+    smiles: N[C@H]1CC[C@H](OC2=CC=C(C=C2)F)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 243
+    codon: CGTAGT
+    smiles: O=C(C1)N(N=C1N)C2=CC=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 244
+    codon: TATCAT
+    smiles: COC1=C(OC)C=C(N)C=C1OC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 245
+    codon: CTGGTG
+    smiles: Cl.Cl.NCC1=NC=C(C=N1)C1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 246
+    codon: TGTGAG
+    smiles: N[C@@H](C(C)C)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 247
+    codon: ACCGCA
+    smiles: CC1=CN2CCCC(C2=N1)CN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 248
+    codon: ACCAAT
+    smiles: CN(C)CCN1CC2=C(C1)C(N)=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 249
+    codon: GTTGTC
+    smiles: NS(C(C=C1)=CC=C1N)(=O)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 250
+    codon: ATGTGC
+    smiles: O=C1N(CCCN)CCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 251
+    codon: CCGCCT
+    smiles: N[C@H](C(O)=O)CC(O)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 252
+    codon: GATACG
+    smiles: N[C@@H]([C@@H](C)CC)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 253
+    codon: CTCTTC
+    smiles: NC1CCN(C(C2CCC2)=O)CC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 254
+    codon: CGACAT
+    smiles: O=C(NCCN)OC(C)(C)C
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 255
+    codon: GCTGGA
+    smiles: FC1=CC(Br)=CC=C1CN
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 256
+    codon: GCGTGC
+    smiles: BrC(C=C(CCN)C=C1)=C1OC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 257
+    codon: CTCCAG
+    smiles: NC1=C(F)C=C2N=COC2=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 258
+    codon: GATTCT
+    smiles: BrC(C=C(CCN)C=C1)=C1OC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 259
+    codon: GCTAAC
+    smiles: NC1=CC=C(C(NC2CN3CCC2CC3)=O)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 260
+    codon: CGATTG
+    smiles: NC(C1=CC=CC=C1)C2=CC=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 261
+    codon: TTATCA
+    smiles: NOCC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 262
+    codon: CGTGTT
+    smiles: CN(C)CC1=C(N)C=C(C=C1)C(N)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 263
+    codon: ACACTA
+    smiles: NC1CCCSC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 264
+    codon: ATGCAA
+    smiles: NCC1=C(OC)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 265
+    codon: GAGCTC
+    smiles: NCC(C1=CC=CC=C1)C2=CC=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 266
+    codon: AGGAAC
+    smiles: NCCC(C=C1)=CC=C1OC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 267
+    codon: CCGACG
+    smiles: CC(CN)CC
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 268
+    codon: GATATA
+    smiles: NC(CC1=CC=CC=C1)C2=CC=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 269
+    codon: ACTCAA
+    smiles: FC(F)(F)CN1CCNCC1=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 270
+    codon: AGCTCA
+    smiles: NC(C1CCOCC1)C#N
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 271
+    codon: CTTATT
+    smiles: NCCC1=CC(OC)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 272
+    codon: ACAGGC
+    smiles: NCC1=CC(C)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 273
+    codon: TTAAGG
+    smiles: COC1=CN=C(N)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 274
+    codon: CGGTGG
+    smiles: ClC1=C(CN)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 275
+    codon: GACTAT
+    smiles: N[C@@H](CC1=CC=CC=C1)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 276
+    codon: GAACAG
+    smiles: N[C@@H](CCSC)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 277
+    codon: CCTGCA
+    smiles: NCC1=CC=C(OC)C=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 278
+    codon: CTGAAT
+    smiles: N[C@@H](CO)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 279
+    codon: CGGCCG
+    smiles: N[C@@H]([C@H](O)C)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 280
+    codon: GAGGAC
+    smiles: N[C@@H](CC1=CNC2=C1C=CC=C2)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 281
+    codon: CACTGT
+    smiles: COC1=C(CN)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 282
+    codon: ATCCGA
+    smiles: N[C@@H](C)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 283
+    codon: CGACGG
+    smiles: COC1=CC(CN)=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 284
+    codon: TATAAG
+    smiles: N[C@@H](CC(C)C)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 285
+    codon: AGTTAG
+    smiles: O=C(OC)[C@H]1NCCC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 286
+    codon: TTGGTA
+    smiles: NCC(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 287
+    codon: CGCTAC
+    smiles: N[C@@H](CCC(OC)=O)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 288
+    codon: GTTAAT
+    smiles: C1CCC2=CN=C(C3CCCNC3)N2C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 289
+    codon: ACGAAG
+    smiles: N[C@@H](C(C)C)C(OC)=O
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 290
+    codon: ATAATT
+    smiles: FC1=CC2=C(C=C1)N=C(O2)C1CCCNC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 291
+    codon: ATTGCA
+    smiles: NC1(C(OC)=O)CCC2=CC=CC=C2C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 292
+    codon: GTAGAG
+    smiles: N[C@H](C(O)=O)CC1=CC=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 293
+    codon: GTTCGT
+    smiles: NC1CSCC2=C1C=CC=C2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 294
+    codon: CGCAGC
+    smiles: NC1CCN(CC1)CC2CCCC2
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 295
+    codon: ATTAAC
+    smiles: NC1=C(N2CCOCC2)C=CC=C1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 296
+    codon: TACGTA
+    smiles: NC1CCCOC1
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 297
+    codon: ACTTAT
+    smiles: N[C@H](C(O)=O)C
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  - index: 298
+    codon: ATCAGT
+    smiles: N[C@H](C(O)=O)CC(C)C
+    educt: scaffold_1
+    reaction: ABF1
+    product: product_1
+  B1:
+  - index: 0
+    codon: GCCTCG
+    smiles: OC(=O)COC1=C2C=CC=CC2=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 1
+    codon: TCCGAC
+    smiles: CC1=CC2=C(SCC(O)=O)N=CN=C2S1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 2
+    codon: CAAGTG
+    smiles: OC(=O)C1=CNC(=O)N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 3
+    codon: GTCCGC
+    smiles: CC(C)CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 4
+    codon: GACGAC
+    smiles: CCC=CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 5
+    codon: TTATAG
+    smiles: CCC(C)CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 6
+    codon: CCGAAG
+    smiles: CC(C)CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 7
+    codon: GAACCA
+    smiles: OC(=O)CC1CCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 8
+    codon: AGAGAA
+    smiles: OC(=O)CCC1CCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 9
+    codon: CATGAG
+    smiles: OC(=O)CC1CCCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 10
+    codon: ACATTA
+    smiles: CC(C)(C)CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 11
+    codon: GGAATC
+    smiles: OC(=O)CC1=CC(F)=CC=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 12
+    codon: GCCAAC
+    smiles: CC(CC(O)=O)C=C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 13
+    codon: GTGGCA
+    smiles: CC(=O)[C@@H]1C[C@@H](CC(O)=O)C1(C)C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 14
+    codon: ATAATA
+    smiles: CC(=O)CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 15
+    codon: CGTAAG
+    smiles: CCCCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 16
+    codon: TCTTCT
+    smiles: OC(=O)CCC=C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 17
+    codon: ATTCGC
+    smiles: CN(C)CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 18
+    codon: GGAAGG
+    smiles: CCOCCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 19
+    codon: ATGGTA
+    smiles: CC(C)(C)OCCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 20
+    codon: TAATAA
+    smiles: OC(=O)CNC(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 21
+    codon: TTAACC
+    smiles: OC(=O)C[C@@H]1C[C@H]2CC[C@@H]1C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 22
+    codon: AATACG
+    smiles: CC1=CC=CC=C1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 23
+    codon: AAGCGG
+    smiles: CC1=CC=C(CC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 24
+    codon: CGCTTA
+    smiles: CC1=CC(CC(O)=O)=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 25
+    codon: TGCTGC
+    smiles: OC(=O)CCC1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 26
+    codon: TGCACA
+    smiles: OC(=O)CCCCC#C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 27
+    codon: CTTGCA
+    smiles: OC(=O)CCS(=O)(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 28
+    codon: TTAGAC
+    smiles: CC1(C)[C@@H]2CC[C@@]1(C)[C@H](CC(O)=O)[C@H]2O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 29
+    codon: TGATGA
+    smiles: CCC=CCC1C(CC(O)=O)CCC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 30
+    codon: GATATT
+    smiles: OC(=O)CC=CC1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 31
+    codon: ACGGTG
+    smiles: CC1=CC=C(SCC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 32
+    codon: AGGTAC
+    smiles: O[C@H](CC(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 33
+    codon: GCCTGC
+    smiles: C[C@@H](NC(=O)CCC(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 34
+    codon: GCTCCG
+    smiles: C[C@H](NC(=O)CCC(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 35
+    codon: GATAAC
+    smiles: COC1=CC=CC=C1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 36
+    codon: GGCGTT
+    smiles: COC1=CC(CCC(O)=O)=C(OC)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 37
+    codon: GCGGAA
+    smiles: COC1=CC(OC)=C(CCC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 38
+    codon: GACAAT
+    smiles: OC(=O)CCC1=CC=CO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 39
+    codon: CTTCAC
+    smiles: COC1=CC=CC(CCC(O)=O)=C1OC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 40
+    codon: CGTGGC
+    smiles: CC1=C(OCC(O)=O)C=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 41
+    codon: ACCTAC
+    smiles: CC1=CC=CC=C1C(=O)NCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 42
+    codon: TTCGAA
+    smiles: CC1=CC(=CC=C1)C(=O)NCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 43
+    codon: CTCCGA
+    smiles: CC1=CC=C(C=C1)C(=O)NCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 44
+    codon: AGAGCG
+    smiles: CC(O)(CC(O)=O)C(F)(F)F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 45
+    codon: CGTGAA
+    smiles: OC(=O)CCNC(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 46
+    codon: TCTCGG
+    smiles: COC1=CC=C(OC)C(CC(O)=O)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 47
+    codon: TCGGCT
+    smiles: COC1=C(OC)C(CC(O)=O)=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 48
+    codon: ACACTC
+    smiles: OC(=O)CCC1=CC2=C(OCC2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 49
+    codon: GTGGTG
+    smiles: COC1=CC=C(CC(O)=O)C(OC)=C1OC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 50
+    codon: GGACTT
+    smiles: COC1=C(OCC(O)=O)C=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 51
+    codon: GTACTC
+    smiles: COC1=CC=C(OC)C(=C1)C(=O)CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 52
+    codon: AGCTAA
+    smiles: OC(=O)CC1=CC=C(F)C=C1Cl
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 53
+    codon: TAAGCG
+    smiles: OC(=O)CCCC1=CC2=C(N1)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 54
+    codon: CAGCAG
+    smiles: OC(=O)CC1=C(F)C=C(F)C=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 55
+    codon: CACGAA
+    smiles: COC1=CC2=C(NC(CC(O)=O)=C2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 56
+    codon: TATTAT
+    smiles: OC(=O)COC1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 57
+    codon: ATGTCA
+    smiles: OC(=O)CC1=CC=C(F)C(F)=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 58
+    codon: CTAGGA
+    smiles: OC(=O)CCNC(=O)C1=CC=C(C=C1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 59
+    codon: CGGTGC
+    smiles: OC(=O)CNC(=O)OCC1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 60
+    codon: GGCAGA
+    smiles: COC1=CC(OC)=CC(CCC(O)=O)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 61
+    codon: AACCTG
+    smiles: OC(CC1=CC=C(C([N+]([O-])=O)=C1)O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 62
+    codon: TGGTAA
+    smiles: COC1=CC2=C(C=C1)C(=O)C(CC(O)=O)C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 63
+    codon: GAACGG
+    smiles: COC1=CC=C(Br)C=C1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 64
+    codon: CAGAAC
+    smiles: OC(=O)CC1=CC=C(F)C(F)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 65
+    codon: AAGACC
+    smiles: OC(=O)CC1=CC=C(F)C(Cl)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 66
+    codon: ATATAA
+    smiles: CC1=CC=C(F)C=C1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 67
+    codon: AGAATT
+    smiles: OC(=O)CC1=C(F)C(F)=C(F)C(F)=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 68
+    codon: GCCAGG
+    smiles: OC(=O)CC1NC(=O)C(CC2=CC=CC=C2)NC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 69
+    codon: GCGTAG
+    smiles: OC(=O)CC1=CC=C(Cl)N=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 70
+    codon: GCGTCT
+    smiles: OC(=O)CC1=CC=CC=C1Cl
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 71
+    codon: ACTGAG
+    smiles: OC(=O)CC1=CC=CC(=C1)C(F)(F)F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 72
+    codon: GCTGTG
+    smiles: OC(=O)CC1=CC=C(C=C1)C(F)(F)F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 73
+    codon: AGTGGA
+    smiles: OC(=O)CC1=CC=CC(F)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 74
+    codon: CAGGAT
+    smiles: OC(=O)CC1=CC(F)=CC(F)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 75
+    codon: CAGGCC
+    smiles: OC(=O)CC1=CC=C(F)C=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 76
+    codon: CTCTAA
+    smiles: COC1=C(OC)C=C(CC(O)=O)C(Br)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 77
+    codon: AACTTA
+    smiles: COC1=CC2=C(NC(CC(O)=O)=C2C)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 78
+    codon: TAGGTT
+    smiles: OC(=O)CCNS(=O)(=O)C1=CC2=C(C=CC=C2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 79
+    codon: TACTTG
+    smiles: OC(=O)CC1=CC(=CC=C1F)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 80
+    codon: ACCTCA
+    smiles: C[C@@H](CC(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 81
+    codon: GTGAAC
+    smiles: OC(=O)CC1=CC=CC=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 82
+    codon: AACCGC
+    smiles: OC(=O)CC1=CC=CC(F)=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 83
+    codon: TAGAAT
+    smiles: CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 84
+    codon: CGGAAT
+    smiles: OC(=O)CN1C(=O)C2=C(C=CC=C2)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 85
+    codon: TATCAA
+    smiles: OC(=O)CCCC1=CC=C2OCCOC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 86
+    codon: TTGCGG
+    smiles: COC1=CC=C2C(CC(O)=O)=COC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 87
+    codon: TATTCA
+    smiles: OC(=O)CC1=CSC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 88
+    codon: ACCTGG
+    smiles: CC1=C(CC(O)=O)N=C(O1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 89
+    codon: CGACTC
+    smiles: OC(=O)CC1=COC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 90
+    codon: GTCGTC
+    smiles: OC(=O)CCN1C(=O)C2=C(C=CC=C2)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 91
+    codon: CGCCAA
+    smiles: COC1=CC=C(CC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 92
+    codon: TAGTAG
+    smiles: CCOC1=CC=C(CC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 93
+    codon: TATCGC
+    smiles: COC1=CC(CC(O)=O)=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 94
+    codon: ACGAGT
+    smiles: CCOC1=CC=CC=C1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 95
+    codon: ACTCTG
+    smiles: OC(=O)COC1=C(C=CC=C1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 96
+    codon: ATCTAG
+    smiles: OC(=O)CCCC1=CC=C(C=C1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 97
+    codon: CACAGA
+    smiles: CC1=C(CC(O)=O)NC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 98
+    codon: TGAGTC
+    smiles: CN1C=C(CC(O)=O)C2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 99
+    codon: AACGAG
+    smiles: COC1=CC=C(CC(O)=O)C=C1OC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 100
+    codon: AGGCCG
+    smiles: COC1=CC(CC(O)=O)=CC(OC)=C1OC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 101
+    codon: CAAGCA
+    smiles: CCOC1=CC=C(CCC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 102
+    codon: ATACGA
+    smiles: OC(=O)CCC1=CC2=C(OCO2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 103
+    codon: CACTCA
+    smiles: OC(=O)CCC1=NC(=NO1)C1=C(F)C=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 104
+    codon: GAGACT
+    smiles: COC1=C(CCC(O)=O)C=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 105
+    codon: TAGTCC
+    smiles: COC1=CC=C(CCC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 106
+    codon: AGCAGC
+    smiles: COC1=CC=C(CC(O)=O)C=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 107
+    codon: CCGGAC
+    smiles: CCOC1=CC=C(CC(O)=O)C=C1OC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 108
+    codon: CGCCGC
+    smiles: OC(=O)CCC1=CC(=O)C2=C(O1)C=CC(F)=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 109
+    codon: TGTTGT
+    smiles: OC(=O)CCC1=CC(=O)C2=C(O1)C=CC(Cl)=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 110
+    codon: GTGTGC
+    smiles: OC(=O)CCC1=NC=C(O1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 111
+    codon: TAACGA
+    smiles: OC(=O)CCC1=NC=C(O1)C1=CC=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 112
+    codon: GCGACC
+    smiles: OC(=O)CCC1=NOC(=C1)C1=CC=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 113
+    codon: GTTGTT
+    smiles: OC(=O)CNC(=O)C=CC1=CC=CO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 114
+    codon: TGGAAC
+    smiles: OC(=O)CC1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 115
+    codon: CGCTAT
+    smiles: OC(=O)CCC1=NC=C(O1)C1=CC=C(Br)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 116
+    codon: TGTTCG
+    smiles: CC1=CC(OCC(O)=O)=C2C3=C(CCC3)C(=O)OC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 117
+    codon: CTCATG
+    smiles: OC(=O)COC1=CC2=C(C=CC=C2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 118
+    codon: CTCCTC
+    smiles: OC(=O)CCC1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 119
+    codon: CTGGTC
+    smiles: OC(=O)CC1=CSC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 120
+    codon: TGCGAT
+    smiles: OC(=O)CCCC1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 121
+    codon: CTCAGC
+    smiles: OC(=O)CCC(=O)C1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 122
+    codon: CCGTCA
+    smiles: COC1=CC=C(C=C1F)C(=O)CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 123
+    codon: CGTCCG
+    smiles: COC1=CC=C(C=C1)C(=O)CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 124
+    codon: TGGTTC
+    smiles: COC1=CC(CC(O)=O)=CC=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 125
+    codon: CAAGGT
+    smiles: OCC1=CC=C(OCCC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 126
+    codon: GAACAC
+    smiles: OC(=O)CCC1=CC=C(F)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 127
+    codon: GGATAG
+    smiles: OC(=O)COC1=CC=C(F)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 128
+    codon: ACTCCA
+    smiles: OC(=O)CCC1=CC(F)=C(F)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 129
+    codon: CTAGTT
+    smiles: OC(=O)CCC(=O)C1=CC=C(F)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 130
+    codon: AGTGCT
+    smiles: OC(=O)CCC(=O)C1=CC=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 131
+    codon: AAGGCG
+    smiles: CC1=C(OCC(O)=O)C=CC(Cl)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 132
+    codon: AGAAGA
+    smiles: OC(=O)COC1=CC=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 133
+    codon: CGGCGG
+    smiles: OC(=O)CCN1C(=O)COC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 134
+    codon: ATAGTC
+    smiles: OC(=O)CCC#C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 135
+    codon: CGTCGT
+    smiles: OC(=O)CC1=CC=C(Cl)C=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 136
+    codon: TGCGTA
+    smiles: CCC1CCC(CC1)C(=O)NCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 137
+    codon: TGGTGG
+    smiles: OC(=O)CC(C1=CC=CO1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 138
+    codon: GCACAG
+    smiles: CC1=NC2=C(C=CC=C2)N1CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 139
+    codon: TCAAGG
+    smiles: CC1=NN=NN1C1=CC=C(CC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 140
+    codon: TTGGAT
+    smiles: CC1=NN=C(O1)SCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 141
+    codon: AATGAC
+    smiles: CC1=NN(CCC(O)=O)C(C)=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 142
+    codon: GGCTCT
+    smiles: CCC1=CC(=O)OC2=CC(C)=CC(OCC(O)=O)=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 143
+    codon: CAACAA
+    smiles: CC1=CC(OCC(O)=O)=C2C(C)=C(C)C(=O)OC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 144
+    codon: AATCCT
+    smiles: COC1=CC=CC=C1C1=NOC(CCCC(O)=O)=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 145
+    codon: TCCACG
+    smiles: OC(=O)C1=CC2=CC=CC=C2N=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 146
+    codon: GGCCAC
+    smiles: OC(=O)C1=NC2=C(O)C=CC=C2C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 147
+    codon: CATTAC
+    smiles: OC(=O)C1=NC2=CC=CC=C2C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 148
+    codon: GCTAGC
+    smiles: OC(=O)C1CC2CCC1C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 149
+    codon: ATAAGT
+    smiles: OC(=O)C1=NC=CC2=CC=CC=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 150
+    codon: TGTGAG
+    smiles: OC(=O)C1=CC=C2NC=CC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 151
+    codon: CGTTGA
+    smiles: OC(=O)CC1=CNC2=CC=C(Br)C=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 152
+    codon: GACGTG
+    smiles: OC(=O)CN1C=C(C(=O)C2CC2)C2=CC=CC=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 153
+    codon: AGATAT
+    smiles: CN1N=C(C(O)=O)C2=CC=CC=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 154
+    codon: ATTACA
+    smiles: OC(=O)C1=CC=C(CN2C=NC3=CC=CC=C23)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 155
+    codon: TTCGCG
+    smiles: CC(CC1=CC=C2OCOC2=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 156
+    codon: CAGTAA
+    smiles: OC(=O)CCCC1=CC2=C(OCCO2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 157
+    codon: AGCGAC
+    smiles: CC1=CN=C(C=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 158
+    codon: CGTGTG
+    smiles: OC(=O)C1=NC2=C(C=CC=C2)N=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 159
+    codon: GGACAA
+    smiles: OC(=O)C1=CC2=C(C=C1)N=CC=N2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 160
+    codon: ACCAGA
+    smiles: CSC1=NC(C(O)=O)=C(Cl)C=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 161
+    codon: ACTCAC
+    smiles: OC(=O)C1=CN=C(N=C1)C1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 162
+    codon: CCAACC
+    smiles: COC1=CC(C(O)=O)=C(OC)N=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 163
+    codon: TGAACG
+    smiles: OC(=O)CCNC(=O)NC12CC3CC(CC(C3)C1)C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 164
+    codon: TCCGCA
+    smiles: OC(=O)C1=CC2=C(O1)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 165
+    codon: TCCAAT
+    smiles: COC1=CC=CC2=C1OC(=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 166
+    codon: TAGCGT
+    smiles: OC(=O)C1=CC2=C(OC=C2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 167
+    codon: TACTGA
+    smiles: OC(=O)C1=CN2C=CSC2=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 168
+    codon: CACGCG
+    smiles: CSC1=NC=C(N1CC1=CC=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 169
+    codon: CGGCTT
+    smiles: OC(=O)C1=CC=C(C=C1)N1C=CN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 170
+    codon: GCGCGG
+    smiles: C[C@H]1CC[C@@H](CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 171
+    codon: CCACGG
+    smiles: OC(=O)C1CCC(=O)CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 172
+    codon: AACTCG
+    smiles: COC1=NC2=CC=CC=C2N=C1CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 173
+    codon: GAGTAC
+    smiles: OC(=O)CC1CCN(CC2=CC=CC=C2)CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 174
+    codon: CTTACC
+    smiles: OC(=O)C1CCN(CC1)C(=O)C1=CC=C(F)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 175
+    codon: AAGTCT
+    smiles: COC1=CC=CC(OC)=C1C(=O)N1CCC(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 176
+    codon: TCCAGC
+    smiles: COC1=CC(=CC(OC)=C1)C(=O)N1CCC(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 177
+    codon: CAACGC
+    smiles: COC1=CC(Cl)=CC2=C1OC(=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 178
+    codon: CTCGTA
+    smiles: CC1=CC=C2NC(=O)C(CC(O)=O)C2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 179
+    codon: ACTTCG
+    smiles: CC1=CC(=O)N(CC(O)=O)C2=CC=CC=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 180
+    codon: TATCTT
+    smiles: OC(=O)CCN1C(=O)CSC1=S
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 181
+    codon: ATCCAC
+    smiles: OC(=O)C1=CC=C(CN2C=NN=N2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 182
+    codon: TGCGCC
+    smiles: OC(=O)C1=CN2CCC3=C2C(=CC=C3)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 183
+    codon: GTCCTG
+    smiles: CC(C)C1=CC(=NO1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 184
+    codon: GGTCCA
+    smiles: CN1N=CC(=C1C)C1=CC(=NO1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 185
+    codon: GAGCAA
+    smiles: CN(CCC(O)=O)C1CCS(=O)(=O)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 186
+    codon: CGGTAG
+    smiles: OC(=O)CCN1CCCCCC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 187
+    codon: GAAGTT
+    smiles: CC1=NN(CC(O)=O)C(=O)C2=CC=CC=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 188
+    codon: TTAGCT
+    smiles: CC1=CC=C(C=C1)N(CC(O)=O)S(C)(=O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 189
+    codon: TTCTAT
+    smiles: OC(=O)C1C2CC(C=C2)C1C(=O)NC1CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 190
+    codon: AATCTC
+    smiles: OC(=O)C1=CN=C(N=C1)C1=CC=CN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 191
+    codon: AGTCTA
+    smiles: CC1=CC=C(C=C1N1CCNC1=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 192
+    codon: ACCAAG
+    smiles: '[H][C@]12CC[C@]([H])(C1)C(C2C(O)=O)C(=O)NC(C)C'
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 193
+    codon: TGTAGC
+    smiles: OC(=O)[C@@H]1C[C@H]1C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 194
+    codon: ATACCT
+    smiles: OC(=O)C1COC2=CC=CC=C2O1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 195
+    codon: CACCTA
+    smiles: OC(=O)C1=NN(C(=O)C1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 196
+    codon: ACTTAT
+    smiles: O[C@H]1CC[C@@H](CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 197
+    codon: TTGATC
+    smiles: OCC(C(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 198
+    codon: CGATGT
+    smiles: CC1(C)C(C(O)=O)C1(C)C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 199
+    codon: ATGCTC
+    smiles: CC(=O)N1C[C@H](O)C[C@H]1C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 200
+    codon: GCGCCA
+    smiles: CCN1C=C(C(O)=O)C(=O)C2=C1N=C(C)C=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 201
+    codon: CTAACT
+    smiles: CS(=O)(=O)C1=CC(F)=CC2=C1NC(=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 202
+    codon: AATCAG
+    smiles: COC1=CC=C2OC(=CC2=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 203
+    codon: GGATCA
+    smiles: OC(=O)C1=CC2=C(O1)C=CC(Cl)=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 204
+    codon: GCAGCA
+    smiles: OC(=O)C1=CC=C2N=CSC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 205
+    codon: TATAGA
+    smiles: CC(C)CN1CC(CC1=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 206
+    codon: AGGCGC
+    smiles: CC(C)(O)C#CC1=CC=C(O1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 207
+    codon: CACTGT
+    smiles: COC1=CC=CC(=C1)N1C=C(C=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 208
+    codon: TCACAT
+    smiles: OC(=O)C1CN(C2CCCC2)C(=O)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 209
+    codon: TCTGCG
+    smiles: CCCN1CCC(CC(O)=O)CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 210
+    codon: CGAGAT
+    smiles: OC(=O)CCCN1CCCCC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 211
+    codon: TGGCGA
+    smiles: CC(C)CN1CC(CCC1=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 212
+    codon: GCGATG
+    smiles: CCC(N1C=CC=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 213
+    codon: CAATCC
+    smiles: CC(C)C1=CC(=NC2=NC=NN12)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 214
+    codon: CATCAT
+    smiles: CC(C)CC(=O)N1CCC(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 215
+    codon: CATCCA
+    smiles: OC(=O)C1CCN(CC1)C(=O)C1CCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 216
+    codon: GTCGAT
+    smiles: CCC(=O)N1CCCC(C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 217
+    codon: GTACGT
+    smiles: OC(=O)C1=NOC(=C1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 218
+    codon: TGCATG
+    smiles: OC(=O)C1=CC=C(CN2CCCCC2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 219
+    codon: GCACCT
+    smiles: CC(N(C1=CC=CC=C1)S(C)(=O)=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 220
+    codon: AAGTTG
+    smiles: COC1=CC=C(C=C1)C1=CC(=NN1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 221
+    codon: AATATA
+    smiles: OC(=O)C1CCN(CC1)C(=O)C1=CC=C(C=C1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 222
+    codon: GAGCGC
+    smiles: CC(CC(O)=O)N1N=C(C)C(C(C)=O)=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 223
+    codon: TCTGTT
+    smiles: CN(C)C(=O)N1CCC(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 224
+    codon: GTTGAA
+    smiles: CC1=C(C)N2C(S1)=NC=C(C(O)=O)C2=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 225
+    codon: TGTCCT
+    smiles: OC(=O)C1CCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 226
+    codon: GGTCTC
+    smiles: OC(=O)C1=CC=CO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 227
+    codon: GCGCAC
+    smiles: OC(=O)C1=COC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 228
+    codon: AGTTGC
+    smiles: CC1=CC=C(S1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 229
+    codon: AGCGGT
+    smiles: CC1=NC(C)=C(S1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 230
+    codon: ACTGTA
+    smiles: CN1N=C(C=C1C(O)=O)C(C)(C)C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 231
+    codon: TCATAC
+    smiles: OC(=O)C1=CN=CC(O)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 232
+    codon: GGAGTG
+    smiles: CC1=NC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 233
+    codon: AACACA
+    smiles: CSC1=C(C=CC=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 234
+    codon: TCCTCC
+    smiles: OC(=O)C1=CC=CN=C1SCCS(=O)(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 235
+    codon: AGTCAT
+    smiles: CC(C)OC1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 236
+    codon: CTACTA
+    smiles: CC(=O)NC1=CC=C(C=C1NC(C)=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 237
+    codon: TCCATA
+    smiles: COC1=CC(=CC(OC)=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 238
+    codon: TTGCCA
+    smiles: COC1=CC(=CC(OC)=C1C)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 239
+    codon: GACATA
+    smiles: CN(C)C1=CC=CC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 240
+    codon: TTGTCT
+    smiles: COC1=CC(=CC(OC)=C1OC)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 241
+    codon: TACTAC
+    smiles: OC(=O)C1=CC(F)=C(F)C=C1F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 242
+    codon: GCAAGT
+    smiles: OC(=O)C1=C(F)C=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 243
+    codon: ATGGAC
+    smiles: OC(=O)C1=CC(Cl)=C(F)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 244
+    codon: GATTGA
+    smiles: OC(=O)C1=C(F)C(F)=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 245
+    codon: TACATC
+    smiles: OC(=O)C1=CC=C(F)C(F)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 246
+    codon: CAGCCT
+    smiles: OC(=O)C1=CC=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 247
+    codon: CGGTCT
+    smiles: OC(=O)C1=CC=CC(Cl)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 248
+    codon: GATCGT
+    smiles: OC(=O)C1=C(Cl)C=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 249
+    codon: TATACC
+    smiles: OC(=O)C1=C(Cl)C=CC(=C1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 250
+    codon: GTAACA
+    smiles: OC(=O)C1=CC(Cl)=CC=C1[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 251
+    codon: ACGGCA
+    smiles: COC(=O)C1=CC(=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 252
+    codon: GATGCG
+    smiles: CCOC(=O)C1=CC(=CC(=C1)C(O)=O)C(=O)OCC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 253
+    codon: CGCAGG
+    smiles: NC(=O)COC1=CC=CC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 254
+    codon: CTAATC
+    smiles: OC(=O)C1=NC=CN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 255
+    codon: TGATCC
+    smiles: OC(=O)C1=NC=CN1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 256
+    codon: ATAGAT
+    smiles: CC1=C(CC(O)=O)N=C(O1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 257
+    codon: CCTCCT
+    smiles: CCC1=CC(=O)OC2=CC(OCC(O)=O)=C(Cl)C=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 258
+    codon: CGGAGA
+    smiles: OC(=O)C1=CC(CN2C=CC=N2)=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 259
+    codon: GGTGTA
+    smiles: OC(=O)C1=CC(=CC=C1)N1C=CC=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 260
+    codon: TGGACT
+    smiles: CN(CCC(O)=O)C1CCN(C)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 261
+    codon: GCCGGA
+    smiles: CC1=NNC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 262
+    codon: TGCCGT
+    smiles: OC(=O)C1=CC(=C(C=C1)N1CCCC1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 263
+    codon: AACGGA
+    smiles: OC(=O)C1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 264
+    codon: ATATTG
+    smiles: CCN1N=C(C)C=C1C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 265
+    codon: GACCTC
+    smiles: OC(=O)C1=CC=NN1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 266
+    codon: CATGGA
+    smiles: OC(=O)C1=CC=CC(O)=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 267
+    codon: CGAATG
+    smiles: COC1=C(OC)C(OC)=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 268
+    codon: ACATAG
+    smiles: CN1C=NC2=C(C(C)=C(S2)C(O)=O)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 269
+    codon: CCAGCG
+    smiles: OC(=O)C1C2OC3(CN(CC4=NC=CC=C4)C(=O)C13)C=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 270
+    codon: CGCACT
+    smiles: CC(=O)NC1=CC(=CC(NC(C)=O)=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 271
+    codon: CCGCAA
+    smiles: CC(=O)OC12CC3CC(C1)CC(C3)(C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 272
+    codon: GGCGAA
+    smiles: OC(=O)CC1=NN=C(N1)C1=CN=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 273
+    codon: TTATTA
+    smiles: OC(=O)CN1N=C2C=CC=CC2=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 274
+    codon: ATCACT
+    smiles: CCN1CC2=C(C1=O)C(=CC=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 275
+    codon: GACGGT
+    smiles: CN1C(=O)C(=NC2=C1C=CC=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 276
+    codon: CGGACC
+    smiles: OC(=O)C1CCC=CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 277
+    codon: GCTCAA
+    smiles: CN(CC(O)=O)C1=NC=NC2=C1NC=N2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 278
+    codon: GCCGAG
+    smiles: CC1=NC2=NC=NN2C(C)=C1CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 279
+    codon: AGTAGT
+    smiles: OC(=O)C1=C(OC=N1)C1=CC=CO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 280
+    codon: AAGGTC
+    smiles: OC(=O)C1=CC=NO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 281
+    codon: AACAAC
+    smiles: CN1N=C(C)C(CCC(O)=O)=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 282
+    codon: AGTTAG
+    smiles: CN1C=C(C=N1)C1=NOC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 283
+    codon: CCTCTC
+    smiles: CS(=O)(=O)C1=CC=CC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 284
+    codon: AGCGCA
+    smiles: OC(=O)C1=CC(=CC=C1)C#C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 285
+    codon: ACCGTT
+    smiles: CS(=O)(=O)C1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 286
+    codon: AAGCCA
+    smiles: OC(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 287
+    codon: CGAGTA
+    smiles: CC1(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 288
+    codon: TCAACT
+    smiles: OC(=O)C1CN(CC2=CC=CC=C2)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 289
+    codon: AGCATA
+    smiles: CSC1=CC=C(CC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 290
+    codon: GAATGC
+    smiles: O[C@@H](C(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 291
+    codon: CCACAC
+    smiles: NC(=O)C1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 292
+    codon: CAGACA
+    smiles: CC1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 293
+    codon: TCGTAT
+    smiles: CC1=CC=CC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 294
+    codon: GGTACG
+    smiles: OC(=O)C1=CC=CN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 295
+    codon: ACCGCG
+    smiles: COC1=CC=CC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 296
+    codon: ACGCAG
+    smiles: OC(=O)C1CCCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 297
+    codon: GCTAAG
+    smiles: CC(C)C(O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 298
+    codon: CAATGA
+    smiles: OC(=O)CN1C=NC2=C(C=CC=C2)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 299
+    codon: CTTGGT
+    smiles: OC(=O)C1=CC(Br)=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 300
+    codon: TAGATA
+    smiles: OC(=O)CN1C=CN=C1C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 301
+    codon: GTATGA
+    smiles: CC(C)(O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 302
+    codon: ATGGCT
+    smiles: OC(=O)C1=CC=C(Br)O1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 303
+    codon: TTCAGG
+    smiles: OC(=O)CC1=CC(=CC=C1)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 304
+    codon: CTTCTT
+    smiles: OC(=O)CSC1=CC=NC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 305
+    codon: TGAATA
+    smiles: CC(=O)N[C@H](CC1=CNC2=C1C=CC=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 306
+    codon: ATTATT
+    smiles: CC(=O)N[C@@H](CC1=CNC2=CC=CC=C12)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 307
+    codon: ACGATA
+    smiles: CC(=O)N[C@H](CC1=CC=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 308
+    codon: TAGGCA
+    smiles: CC(=O)N[C@@H](CC1=CC=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 309
+    codon: GGTTGG
+    smiles: CC(=O)N[C@H](CC1=CC=C(O)C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 310
+    codon: CCAATT
+    smiles: CC(=O)NC(CC1=CC=C(O)C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 311
+    codon: ACACGT
+    smiles: CC(=O)N[C@@H](CC(N)=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 312
+    codon: CACACC
+    smiles: CC(=O)N[C@@H](CCC(N)=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 313
+    codon: GGCACC
+    smiles: CC(=O)N[C@@H](CC1=CNC=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 314
+    codon: GCCTAT
+    smiles: OC(=O)C1=CC=C(C=C1)C#N
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 315
+    codon: AGCCAG
+    smiles: OC(=O)C1CCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 316
+    codon: GACGCA
+    smiles: CN1CCC(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 317
+    codon: TAACCT
+    smiles: CC(O)CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 318
+    codon: AGGACA
+    smiles: CC1=NC(=CS1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 319
+    codon: CTGGAA
+    smiles: OC(=O)C1=CSC(=N1)C(F)(F)F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 320
+    codon: ACTACT
+    smiles: OC(=O)C1CC2=C(C1)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 321
+    codon: TCCTGT
+    smiles: OC(=O)C1=CC(=C(Cl)C=C1)S(=O)(=O)N1CCOCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 322
+    codon: CCTATG
+    smiles: CC1CN(CC(C)O1)S(=O)(=O)C1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 323
+    codon: ACGAAC
+    smiles: OC(=O)C1=C(Cl)C=CC(=C1)S(=O)(=O)N1CCCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 324
+    codon: AGGCAA
+    smiles: COC1=C(C=CC=C1)N(C)S(=O)(=O)C1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 325
+    codon: TGACTG
+    smiles: CC1(C)CC2=C(O1)C(OCC(O)=O)=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 326
+    codon: AGTAAC
+    smiles: CC(C)CC(NC(N)=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 327
+    codon: CCAGAA
+    smiles: CCC(C)C(NC(N)=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 328
+    codon: AACAGG
+    smiles: NC(=O)N1CCCC1C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 329
+    codon: AAGAGA
+    smiles: CC1=CC=C(CN2CC(CC2=O)C(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 330
+    codon: TTAAGA
+    smiles: CC1=C(SC2=C1C(=O)NC=N2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 331
+    codon: CTCGCT
+    smiles: OC(=O)CN1C=NC=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 332
+    codon: CTGCGC
+    smiles: CC1=CC=C(C=C1)S(=O)(=O)N(CC(O)=O)CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 333
+    codon: TCACTA
+    smiles: OC(=O)C1CN(CCC2=CC=CC=C2)C(=O)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 334
+    codon: AATTAA
+    smiles: OC1CC(N(C1)S(=O)(=O)C1=CC(Cl)=C(Cl)C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 335
+    codon: ACATCC
+    smiles: CC(C)NS(=O)(=O)C1=CC(=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 336
+    codon: AAGCAC
+    smiles: CC(=O)NC1=NC(C(O)=O)=C(Br)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 337
+    codon: TTGGCC
+    smiles: OC(=O)C1=C(ON=C1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 338
+    codon: AGTGTC
+    smiles: CC1=NC(C(O)=O)=C(C)O1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 339
+    codon: CGAAGC
+    smiles: OC(=O)C1=CC(=CN=C1)C1=CC=C(Cl)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 340
+    codon: TTGTTG
+    smiles: CC1=CC(=CC=C1)C1=CC(=CN=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 341
+    codon: GTCCAA
+    smiles: NC1=C(Br)C=C(C=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 342
+    codon: GTGTAA
+    smiles: OC(=O)C1=CC=C(C=C1)S(=O)(=O)NCC=C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 343
+    codon: TCTTAG
+    smiles: OC(=O)C1=C(ON=C1)C1CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 344
+    codon: TAGCTG
+    smiles: CN1C=C(C(O)=O)C(=N1)C(F)F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 345
+    codon: CTACAT
+    smiles: OC(=O)C1CN(C2CC2)C(=O)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 346
+    codon: GTCAGT
+    smiles: OC(=O)C1=C2N=CC(Br)=CN2N=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 347
+    codon: ACGTTC
+    smiles: CN1N=NC2=C1N=CC(=C2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 348
+    codon: ATTCCG
+    smiles: OC(=O)C1=CC=C(C=C1)S(=O)(=O)NC1CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 349
+    codon: CACCGG
+    smiles: OC(=O)C1CCN(CC1)C(=O)C1=CC=CS1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 350
+    codon: TCAGCC
+    smiles: OC(=O)C1=C(Br)C=CC(=C1)S(=O)(=O)NC1CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 351
+    codon: GGTGGT
+    smiles: COC1=C(C=C(C=C1)C(O)=O)S(=O)(=O)NC1CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 352
+    codon: CAACTT
+    smiles: NC(=O)NC1=CC(=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 353
+    codon: ATATGC
+    smiles: OC(=O)C1=CC2=C(N=CC=N2)N=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 354
+    codon: GCATGG
+    smiles: CC1=C(Br)C=C(C(O)=O)C(O)=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 355
+    codon: GGAACT
+    smiles: CC1=CC(=CC=C1)C1=NN=C(S)N1CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 356
+    codon: ATCATC
+    smiles: OC(=O)C1=C(N=CC=N1)C1=NC2=C(S1)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 357
+    codon: AGTATG
+    smiles: CN1N=C2C=CC=CC2=C1C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 358
+    codon: GCGAGA
+    smiles: OC(=O)C1CCN(CC1)S(=O)(=O)C1=CC2=C(CCC2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 359
+    codon: TATGCT
+    smiles: OC(=O)C1=CC2=C(N1)C=CC=C2F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 360
+    codon: CTTCGG
+    smiles: OC(=O)C1=NN(C(=O)NC1=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 361
+    codon: GGAGAC
+    smiles: OC(=O)CC(CC(O)=O)C1=C(Br)C=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 362
+    codon: GGCGCG
+    smiles: OC(=O)C1=CC=C(CN2C(=O)CNC2=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 363
+    codon: CGGCCA
+    smiles: CC1=C(C=C(C=C1)S(=O)(=O)NC1CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 364
+    codon: TTATGT
+    smiles: NC1=C(N=CC=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 365
+    codon: TCTGAA
+    smiles: OC(=O)C1=C(Cl)C=CC(O)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 366
+    codon: CTGTGA
+    smiles: CC1=NC2=C(C=C(O)C=C2)C(=O)N1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 367
+    codon: GCCGCC
+    smiles: NC1=C2C=CN(CC(O)=O)C2=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 368
+    codon: GCTGCT
+    smiles: NC1=C(NC(=O)NC1=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 369
+    codon: GAATTA
+    smiles: CN1C2=C(N(CC(O)=O)C=N2)C(=O)N(C)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 370
+    codon: CCATTC
+    smiles: OC(=O)[C@@H]1CC(=O)NC(=O)N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 371
+    codon: GCACGA
+    smiles: CC1=C(C(=O)C(O)=O)C2=C(N1)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 372
+    codon: TTACCG
+    smiles: CC1=NOC2=C1C(=CC(=N2)C1CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 373
+    codon: CCAGGC
+    smiles: OC(=O)C1(CCCC1)NC(=O)NCC1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 374
+    codon: TCAGAG
+    smiles: CCC=CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 375
+    codon: AGACAC
+    smiles: OCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 376
+    codon: GGTCAG
+    smiles: CC1=CC=C(C=C1)S(=O)(=O)NCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 377
+    codon: AGAACC
+    smiles: CN(CC(O)=O)C(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 378
+    codon: ATGAGC
+    smiles: CN(C)C1=CC=C(CC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 379
+    codon: ACTTGA
+    smiles: COC1=C(OC)C=C(CCC(O)=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 380
+    codon: AGGAGG
+    smiles: COC1=CC(CC(O)=O)=CC(Br)=C1O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 381
+    codon: TCGTCG
+    smiles: OC(=O)CC1=CC=C2OCOC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 382
+    codon: GCTTCA
+    smiles: COC1=CC(CCC(O)=O)=CC(OC)=C1OC
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 383
+    codon: TCAGGT
+    smiles: OC(=O)CCC1=CNC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 384
+    codon: CGAACA
+    smiles: COC1=CC(OC)=NC(CCC(O)=O)=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 385
+    codon: CGCGAG
+    smiles: OC(=O)CCC1=CC=CN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 386
+    codon: CCTCAG
+    smiles: OC(=O)CCC1CNC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 387
+    codon: GGCCTA
+    smiles: OC(=O)CC1NC(=O)NC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 388
+    codon: TCGACA
+    smiles: OC(=O)CCN1C(=O)OC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 389
+    codon: CATATC
+    smiles: CC1=CN(CC(O)=O)C(=O)NC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 390
+    codon: AGGATC
+    smiles: CN1C2N=CN(CC(O)=O)C2C(=O)N(C)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 391
+    codon: AAGGAA
+    smiles: CN(CC(O)=O)S(=O)(=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 392
+    codon: CTCGAC
+    smiles: OC(=O)COC1=CC2=C(C=CC(=O)O2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 393
+    codon: GTTACT
+    smiles: CC1=C(C)C2=C(OC1=O)C=C(OCC(O)=O)C=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 394
+    codon: TGCTAG
+    smiles: OC(=O)CC1OC2=C(NC1=O)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 395
+    codon: TCGGTA
+    smiles: OC(=O)CC1=CC2=C(N1)C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 396
+    codon: GCTTGT
+    smiles: COC1=C(CO)C=CC(OCC(O)=O)=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 397
+    codon: CCGCGT
+    smiles: CC1=CC=C(C=C1)C(=O)CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 398
+    codon: CGATCG
+    smiles: OC(=O)CCC1=CC(=O)C2=C(O1)C=CC(Br)=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 399
+    codon: ATGAAT
+    smiles: OC(=O)CCC1=NN=C(O1)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 400
+    codon: CATACT
+    smiles: OC(=O)CNC(=O)C1=CC=CO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 401
+    codon: CGACAG
+    smiles: OC(=O)CCN1C(=O)COC2=C1C=C(Cl)C=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 402
+    codon: GAAGAA
+    smiles: OC(=O)CCN1C=NC2=C(C=CC=C2)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 403
+    codon: GGTTAA
+    smiles: OC(=O)CCC1=NC(=NO1)C1=CN=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 404
+    codon: ACGCCT
+    smiles: OC(=O)CCN1C=CC(=O)NC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 405
+    codon: AATGTG
+    smiles: CC(=O)C1=C(C)N(CCC(O)=O)N=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 406
+    codon: ACAAGC
+    smiles: CC1=CC2=C(C=CC=C2)N1CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 407
+    codon: GACTGG
+    smiles: CC1=CC2=C(C=C1)C(CC(O)=O)C(=O)N2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 408
+    codon: ACGGAT
+    smiles: CC1=CC(=O)OC2=C1C=C(OCC(O)=O)C=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 409
+    codon: ATCTGA
+    smiles: OC(=O)CCC1=NC(=NO1)C1=CC=CO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 410
+    codon: CTCTCC
+    smiles: OC(=O)C1=C2C=CN=CC2=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 411
+    codon: AACGCC
+    smiles: OC(=O)C1=CN=C2C=CC=CN2C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 412
+    codon: CAGGTA
+    smiles: OC(=O)C1=CC=C2C=CNC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 413
+    codon: GATCTA
+    smiles: OC(=O)C1=CC2=CC(O)=CC=C2N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 414
+    codon: GCATAA
+    smiles: COC1=CC=C2NC(=CC2=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 415
+    codon: AGCACG
+    smiles: OC(=O)C1=NNC2=C1C=CC=C2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 416
+    codon: ACCGAA
+    smiles: OC(=O)C1=CC=C2NC=NC2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 417
+    codon: AACCAA
+    smiles: CC1=NC(C)=C(CC(O)=O)C(O)=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 418
+    codon: GCTGAC
+    smiles: OC(=O)C1=CN=C(N=C1)N1CCOCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 419
+    codon: CAGTCG
+    smiles: OC(=O)C1=NNC(=C1)C1CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 420
+    codon: CACGTT
+    smiles: COC1=CC2=C(C=C1)C(CC(O)=O)=CO2
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 421
+    codon: TCACGC
+    smiles: CC1=C(C=C(O1)S(=O)(=O)N1CCOCC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 422
+    codon: AAGCTT
+    smiles: CC1=NC2=CC=C(C=C2N=C1C)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 423
+    codon: CTCACA
+    smiles: CCCC(=O)C1=CN(CC(O)=O)C2=CC=CC=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 424
+    codon: GCCTTA
+    smiles: OCCN1C=NC2=CC(=CC=C12)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 425
+    codon: CGCGTC
+    smiles: CCN1N=C(C=C1C(O)=O)C(C)C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 426
+    codon: GCCATT
+    smiles: OCCC1=CN2N=C(C=C2N=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 427
+    codon: CCGTGG
+    smiles: OC(=O)C1=CC=C(CN2C=CC=N2)O1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 428
+    codon: ACTATC
+    smiles: CC1(C)NC(=O)N(CC(O)=O)C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 429
+    codon: ACAACA
+    smiles: OC(=O)C1CCN(CC2=CC=CO2)CC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 430
+    codon: TGAGCA
+    smiles: NC(=O)CN1CCCC(C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 431
+    codon: CTCAAT
+    smiles: C[C@H]1CCC[C@@H](C)N1CCC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 432
+    codon: CGCCTG
+    smiles: CC1=CC=CN2C(CC(O)=O)=CN=C12
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 433
+    codon: GTAGTA
+    smiles: C[C@@H]1C[C@H](NC(=S)N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 434
+    codon: GACACG
+    smiles: OC(=O)[C@@H]1CCC(=O)N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 435
+    codon: TCATTG
+    smiles: OC(=O)C1CN(CC2=CN=CC=C2)C(=O)C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 436
+    codon: GACCAG
+    smiles: COC1=C2OCC(CC2=CC=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 437
+    codon: ATAACG
+    smiles: CCCN1N=CC(C(O)=O)=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 438
+    codon: ATAGCA
+    smiles: CC(=O)C1=C(C)N(CC(O)=O)N=C1C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 439
+    codon: CTCTGG
+    smiles: OC(=O)C1=CC=CC=C1N1CCC(=O)NC1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 440
+    codon: CCTGAT
+    smiles: COC1=C(Cl)C=C(C=C1)N1CC(CC1=O)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 441
+    codon: ACAGAC
+    smiles: CC1CCN(CC1)C1=C(C=C(C=C1)C(O)=O)[N+]([O-])=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 442
+    codon: CCTCGA
+    smiles: OC(=O)CCCC1=NC(=NO1)C1=CC=NC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 443
+    codon: GCAGTC
+    smiles: CN(C)S(=O)(=O)C1=CC(C(O)=O)=C(C)O1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 444
+    codon: GGCGGC
+    smiles: CN1C=CC=C1C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 445
+    codon: AATCGA
+    smiles: CN1C(=CC2=C1C=CO2)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 446
+    codon: ATACAG
+    smiles: OC(=O)C1=CC=C(N=C1)C(F)(F)F
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 447
+    codon: CTGAGT
+    smiles: CC1=CC=CN=C1C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 448
+    codon: CGCGGA
+    smiles: CCOC1=C(C=CC=N1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 449
+    codon: CGCAAC
+    smiles: OC(=O)C1=CN=C(O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 450
+    codon: CATCTG
+    smiles: OC(=O)C1=CC=C(Br)C=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 451
+    codon: TATGTC
+    smiles: OC(=O)C1=CC=C(OC2=CC=C3OCOC3=C2)N=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 452
+    codon: CAGCGA
+    smiles: OC(=O)C1=NNC(=O)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 453
+    codon: TAAGTA
+    smiles: CC1=NC2=CC=CC=C2N1CC(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 454
+    codon: GGACGC
+    smiles: OC(=O)C1=CN=CN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 455
+    codon: ACTGCC
+    smiles: OC(=O)C1=CNN=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 456
+    codon: GACAGC
+    smiles: CC1=CC=C(C(O)=O)C(O)=N1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 457
+    codon: GTTATA
+    smiles: CC1=CC=C(O1)C1=NNC(=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 458
+    codon: GAGGAG
+    smiles: OC(=O)C1=C(N=CC=N1)C(=O)N1CCCCC1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 459
+    codon: AATTGG
+    smiles: CC1=CC=CC2=NC(=O)CC(C)(N12)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 460
+    codon: CTCCAG
+    smiles: OC(=O)C1=CN=C2SC=CN2C1=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 461
+    codon: GCAACG
+    smiles: OC(=O)C1=CC2=C(NC(=O)C(=O)N2)C=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 462
+    codon: GATAGG
+    smiles: NC(=O)C1(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 463
+    codon: TACCAT
+    smiles: CC1=NN2C(=C1)N=CC(C(O)=O)=C2C
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 464
+    codon: GTCTCA
+    smiles: CC1=C(C(O)=O)C(C)=NO1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 465
+    codon: CCGAGC
+    smiles: OC(=O)C1=CC=C2N=CNC(=O)C2=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 466
+    codon: GAGATC
+    smiles: OC(=O)C1=CC=C(OC2=CC=CN=C2)O1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 467
+    codon: CCGGTT
+    smiles: O[C@H](C(O)=O)C1=CC=CC=C1
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 468
+    codon: GGAGGA
+    smiles: CNC(=O)C1=CC=C(C=C1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 469
+    codon: TATCCG
+    smiles: CC(=O)N1CCC(CC1)C(O)=O
+    educt: product_1B
+    reaction: ABF2
+    product: product_2
+  - index: 470
+    codon: ATGCGT
+    smiles: C#CCN1C=CC2=C1C=CC=C2
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 471
+    codon: CAATAG
+    smiles: Cl.NCCC(O)CCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 472
+    codon: TAGGAC
+    smiles: CCOC(=O)C1=C(NCC#C)N=C(Cl)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 473
+    codon: CTGTAT
+    smiles: Cl.NC1=C(C=CC=C1)C(=O)NCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 474
+    codon: TCGTGA
+    smiles: O=C(NCC#C)NC1=CC=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 475
+    codon: GCGCTT
+    smiles: CC1=CC(NC(=O)NCC#C)=NO1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 476
+    codon: GGCCGG
+    smiles: CN(CC#C)C1=NC=C(N)N=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 477
+    codon: GATTCT
+    smiles: OC(=O)C1=C(NCC#C)N=C(Cl)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 478
+    codon: CACTTC
+    smiles: Cl.C#CCNCC1=CC=CO1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 479
+    codon: TAACTC
+    smiles: BrC1=C(OCC#C)C=CC=N1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 480
+    codon: ACAGCT
+    smiles: CC(O)CC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 481
+    codon: TAATGG
+    smiles: OC(=O)C1=CC(=CN=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 482
+    codon: AATGGT
+    smiles: COC1=C(Br)C=C(C=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 483
+    codon: CCGCCG
+    smiles: BrC1=CC2=C(OCC(=O)N2CC#C)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 484
+    codon: TAAGGC
+    smiles: OC1=CC(OCC#C)=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 485
+    codon: AAGTGC
+    smiles: Cl.NC(CC#C)CC(F)(F)F
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 486
+    codon: TCAATC
+    smiles: OC(=O)[C@@H]1CCCN1CC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 487
+    codon: CACCAC
+    smiles: O=C1NCCN1CC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 488
+    codon: CGTATA
+    smiles: NC(=O)C1=CC(=CN=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 489
+    codon: ATCCTA
+    smiles: C#CCN1C2=C(C=CC=C2)C2=C1C=CC=C2
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 490
+    codon: GTGTCG
+    smiles: COC1=C(N)C=C(C=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 491
+    codon: TTGAAG
+    smiles: BrC1=NC=C(OCC#C)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 492
+    codon: TCCGTG
+    smiles: COC1=C(C=C(Cl)C=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 493
+    codon: GGTGCC
+    smiles: NC(=O)NC1=CC(=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 494
+    codon: ATGTGG
+    smiles: C#CCN1C=CN=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 495
+    codon: GCAATA
+    smiles: COC1=C(F)C=C(C=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 496
+    codon: TACACT
+    smiles: FC(F)OC1=C(C=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 497
+    codon: ACAGGA
+    smiles: CCN1C=C(C=N1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 498
+    codon: ACCACC
+    smiles: C#CCN1C=CN=C1C1=CC=CS1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 499
+    codon: GATTAG
+    smiles: C#CC1=NC2=C(C=CC=C2)N=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 500
+    codon: CCTACA
+    smiles: O=C(NCC#C)NC1CC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 501
+    codon: ATGATG
+    smiles: OC(=O)C1=CC=C(C=C1)S(=O)(=O)NCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 502
+    codon: ACAATG
+    smiles: O=C(NCC#C)C1=CNC(=O)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 503
+    codon: AGCCGA
+    smiles: COC1=CC(C#C)=C(Cl)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 504
+    codon: TTAGTG
+    smiles: FC1=CC(=CC(F)=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 505
+    codon: GTAATG
+    smiles: OC(=O)C1(CC#C)CCC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 506
+    codon: TTCTTC
+    smiles: CC1=CC(NC(=O)CNCC#C)=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 507
+    codon: AAGAAG
+    smiles: OC(=O)CC(=O)NCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 508
+    codon: CTATAC
+    smiles: CC1=NC(=CS1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 509
+    codon: CAAGAC
+    smiles: Cl.NC(C#C)C1CCOCC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 510
+    codon: ACGACG
+    smiles: Cl.NC1(CCC1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 511
+    codon: TCGATT
+    smiles: CCC(C)(O)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 512
+    codon: CCACCA
+    smiles: FC(F)(F)C1=NC(OCC#C)=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 513
+    codon: TTCAAC
+    smiles: CC1=NC(=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 514
+    codon: CCATAT
+    smiles: Cl.NC(=N)NCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 515
+    codon: CCGACT
+    smiles: C#CCNC1CCCC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 516
+    codon: TAAGAT
+    smiles: C#CC1=CN=CN=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 517
+    codon: GTGATT
+    smiles: C#CCN1C=NC=N1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 518
+    codon: AATGCA
+    smiles: ClC1=C(C=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 519
+    codon: ATTCAA
+    smiles: O=C1CCCCN1CC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 520
+    codon: AGTTCA
+    smiles: C#CC1=CC=NN1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 521
+    codon: AATAGC
+    smiles: C#CC1=CC(=CC=C1)C1=CC=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 522
+    codon: GTAGCG
+    smiles: O=C1NC(CC#C)C(=O)N1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 523
+    codon: AGACGG
+    smiles: O=S(=O)(NCC#C)C1=CC=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 524
+    codon: TTAATT
+    smiles: Cl.C#CCN1C=NC2=C1C=CC=C2
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 525
+    codon: AACATT
+    smiles: COC1=NC(=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 526
+    codon: AGCAAT
+    smiles: CC1=C(OCC#C)C=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 527
+    codon: GTCTAC
+    smiles: BrC1=CC2=C(OCCC2NCC#C)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 528
+    codon: TAACAG
+    smiles: CC(NCC#C)C1=CC2=C(OCC(=O)N2)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 529
+    codon: AGCGTG
+    smiles: NC(C#C)C1CCCCC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 530
+    codon: CGAGCC
+    smiles: CC(C)(NS(C)(=O)=O)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 531
+    codon: CTGATA
+    smiles: C#CC1=NC=CS1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 532
+    codon: GTGAGG
+    smiles: Cl.NC(CC#C)C(N)=O
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 533
+    codon: GAGCCG
+    smiles: COC1=CC(=NC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 534
+    codon: GGTAAT
+    smiles: CC1=NC2=C(C=C1)C=C(C=C2)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 535
+    codon: AATAAT
+    smiles: CNC(=O)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 536
+    codon: TAGACG
+    smiles: CC(O)(C#C)C1=C(Br)C=CC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 537
+    codon: CCTTAA
+    smiles: FC1=C(C=CC(Br)=C1)C(=O)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 538
+    codon: TATAAG
+    smiles: Cl.C#CCNCC1CC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 539
+    codon: CGACCT
+    smiles: C#CC1=CN=CS1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 540
+    codon: AGCCTC
+    smiles: CN1CCN(CCC#C)CC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 541
+    codon: CTTAGA
+    smiles: OC(CC#C)C1CC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 542
+    codon: GCCACA
+    smiles: Cl.C#CC1CNC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 543
+    codon: TGTATT
+    smiles: OC(CC1=CC=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 544
+    codon: ATCCGG
+    smiles: COCCN(C)CC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 545
+    codon: AGGTGA
+    smiles: C#CCN1CCCC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 546
+    codon: GTAAGC
+    smiles: ClC1=CC(=CC(Cl)=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 547
+    codon: ACACCG
+    smiles: CN1C=C(C=N1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 548
+    codon: AGACCA
+    smiles: COCC(N)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 549
+    codon: TTACAA
+    smiles: CN(C)CCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 550
+    codon: GACTCC
+    smiles: ClC1=C(Cl)C(=CC=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 551
+    codon: TGGCAG
+    smiles: C#CCCNC1COC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 552
+    codon: CTAGAG
+    smiles: FC1=C(C=CN=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 553
+    codon: ACTAGG
+    smiles: CS(=O)(=O)NCCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 554
+    codon: TAGAGC
+    smiles: NC(CO)CC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 555
+    codon: TTCGGC
+    smiles: NC1=C(F)C(F)=C(C#C)C(F)=C1F
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 556
+    codon: GTATCC
+    smiles: C#CC1=NC2=C(S1)C=CC=C2
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 557
+    codon: GACTAA
+    smiles: OC(=O)C1=CC(=CC=C1)S(=O)(=O)NCC#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 558
+    codon: CTAAGG
+    smiles: OC(CC#C)C(O)=O
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 559
+    codon: GTGCGA
+    smiles: C#CC1=NC=NC=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 560
+    codon: GTTCAT
+    smiles: O=CC1=CC=C(OCC#C)C=C1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 561
+    codon: ACGCGA
+    smiles: OC(=O)C1=CC=C(C=C1)C#C
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  - index: 562
+    codon: AGAGGC
+    smiles: O=S1(=O)CCN(CC#C)CC1
+    educt: product_1
+    reaction: CuAAC
+    product: product_2
+  S0:
+  - name: AG24_4
+    codon: ACACAC
+  - name: AG24_5
+    codon: ACAGCA
+  - name: AG24_6
+    codon: ACATGT
+  - name: AG24_13
+    codon: ACGACG
+  - name: AG24_14
+    codon: ACGCGA
+  - name: AG24_15
+    codon: ACTAGC
+  - name: AG24_22
+    codon: ACTCTG
+  - name: AG24_23
+    codon: ACTGAT
+  - name: AG24_24
+    codon: AGACTA
+  - name: AG24_31
+    codon: AGAGAG
+  - name: AG24_32
+    codon: TAGATG
+  - name: AG24_33
+    codon: TAGTGT
+  - name: AG24_40
+    codon: TATCAC
+  - name: AG24_41
+    codon: TCATAG
+  - name: AG24_42
+    codon: TCGTCA
+  - name: AG24_49
+    codon: TCTACT
+  - name: AG24_50
+    codon: TCTGTA
+  - name: AG24_51
+    codon: TGACAT
+  - name: AG24_58
+    codon: TGCAGC
+  - name: AG24_59
+    codon: TGCGCG
+  - name: AG24_60
+    codon: GCTACT
+  - name: AG24_67
+    codon: GCACAT
+  - name: AG24_68
+    codon: GAGTGT
+  - name: AG24_69
+    codon: GTGCGA
+  - name: AG24_76
+    codon: GCCGCT
+  - name: AG24_77
+    codon: GAAGAT
+  - name: AG24_78
+    codon: GTTCAG
+  S1:
+  - name: AG24_4
+    codon: TCGATA
+  - name: AG24_5
+    codon: TCGATA
+  - name: AG24_6
+    codon: TCGATA
+  - name: AG24_13
+    codon: TCGATA
+  - name: AG24_14
+    codon: TCGATA
+  - name: AG24_15
+    codon: TCGATA
+  - name: AG24_22
+    codon: TCGATA
+  - name: AG24_23
+    codon: TCGATA
+  - name: AG24_24
+    codon: TCGATA
+  - name: AG24_31
+    codon: TCGATA
+  - name: AG24_32
+    codon: TCGATA
+  - name: AG24_33
+    codon: TCGATA
+  - name: AG24_40
+    codon: TCGATA
+  - name: AG24_41
+    codon: TCGATA
+  - name: AG24_42
+    codon: TCGATA
+  - name: AG24_49
+    codon: TCGATA
+  - name: AG24_50
+    codon: TCGATA
+  - name: AG24_51
+    codon: TCGATA
+  - name: AG24_58
+    codon: TCGATA
+  - name: AG24_59
+    codon: TCGATA
+  - name: AG24_60
+    codon: TCGATA
+  - name: AG24_67
+    codon: TCGATA
+  - name: AG24_68
+    codon: TCGATA
+  - name: AG24_69
+    codon: TCGATA
+  - name: AG24_76
+    codon: TCGATA
+  - name: AG24_77
+    codon: TCGATA
+  - name: AG24_78
+    codon: TCGATA

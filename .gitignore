@@ -205,3 +205,31 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ── DELexplore ───────────────────────────────────────────────────────────────
+
+# Sequencing data (multi-GB raw files — store elsewhere)
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.sam
+
+# Analysis results and generated output (re-producible from source data)
+results/
+experiments/
+output/
+
+# Large intermediate Parquet files outside the test suite
+*.parquet
+!tests/data/**/*.parquet
+
+# Synthetic test data generated at runtime (re-created by conftest.py fixtures)
+tests/data/synthetic/
+
+# Snakemake workflow artefacts
+.snakemake/
+logs/
+benchmarks/
