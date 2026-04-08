@@ -1,0 +1,192 @@
+experiment:
+  fastq_path: synthetic.fastq.gz
+  name: synthetic_test
+  num_cores: 4
+  save_dir: experiments/synthetic
+library:
+  B0:
+  - codon: CODON00A
+    educt: scaffold_1
+    index: 0
+    product: product_1
+    reaction: ABF
+    smiles: NC(CC1=CC=CC=C1)C(O)=O
+  - codon: CODON01A
+    educt: scaffold_1
+    index: 1
+    product: product_1
+    reaction: ABF
+    smiles: NC(CC1=CNC2=CC=CC=C12)C(O)=O
+  - codon: CODON02A
+    educt: scaffold_1
+    index: 2
+    product: product_1
+    reaction: ABF
+    smiles: NC(CCCCN)C(O)=O
+  - codon: CODON03A
+    educt: scaffold_1
+    index: 3
+    product: product_1
+    reaction: ABF
+    smiles: NC(CC1=CC=C(O)C=C1)C(O)=O
+  - codon: CODON04A
+    educt: scaffold_1
+    index: 4
+    product: product_1
+    reaction: ABF
+    smiles: NC(CS)C(O)=O
+  - codon: CODON05A
+    educt: scaffold_1
+    index: 5
+    product: product_1
+    reaction: ABF
+    smiles: NC(CCC(O)=O)C(O)=O
+  - codon: CODON06A
+    educt: scaffold_1
+    index: 6
+    product: product_1
+    reaction: ABF
+    smiles: NC(CO)C(O)=O
+  - codon: CODON07A
+    educt: scaffold_1
+    index: 7
+    product: product_1
+    reaction: ABF
+    smiles: NC(C)C(O)=O
+  - codon: CODON08A
+    educt: scaffold_1
+    index: 8
+    product: product_1
+    reaction: ABF
+    smiles: NCC(O)=O
+  - codon: CODON09A
+    educt: scaffold_1
+    index: 9
+    product: product_1
+    reaction: ABF
+    smiles: NC(CC1=CC=NC=C1)C(O)=O
+  B1:
+  - codon: CODON00B
+    educt: product_1
+    index: 0
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=CC=C1
+  - codon: CODON01B
+    educt: product_1
+    index: 1
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=CO1
+  - codon: CODON02B
+    educt: product_1
+    index: 2
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=CN=C1
+  - codon: CODON03B
+    educt: product_1
+    index: 3
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=C(F)C=C1
+  - codon: CODON04B
+    educt: product_1
+    index: 4
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=C(Cl)C=C1
+  - codon: CODON05B
+    educt: product_1
+    index: 5
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=C(OC)C=C1
+  - codon: CODON06B
+    educt: product_1
+    index: 6
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1=CC=C([N+](=O)[O-])C=C1
+  - codon: CODON07B
+    educt: product_1
+    index: 7
+    product: product_2
+    reaction: CuAAC
+    smiles: O=CC1CCCCC1
+  building_blocks:
+  - B0
+  - B1
+selections:
+  blank_1:
+    S0: ACACAC
+    S1: TCGATA
+    beads: HisPURE Beads
+    date: '2024-01-15'
+    group: no_protein
+    ids:
+    - 0
+    - 0
+    operator: Test User
+    protocol: DECL_5W
+    target: .nan
+  blank_2:
+    S0: ACAGCA
+    S1: TCGATA
+    beads: HisPURE Beads
+    date: '2024-01-15'
+    group: no_protein
+    ids:
+    - 1
+    - 0
+    operator: Test User
+    protocol: DECL_5W
+    target: .nan
+  blank_3:
+    S0: ACATGT
+    S1: TCGATA
+    beads: HisPURE Beads
+    date: '2024-01-15'
+    group: no_protein
+    ids:
+    - 2
+    - 0
+    operator: Test User
+    protocol: DECL_5W
+    target: .nan
+  target_1:
+    S0: ACGACG
+    S1: TCGATA
+    beads: Dynabeads SA C1
+    date: '2024-01-15'
+    group: protein
+    ids:
+    - 3
+    - 0
+    operator: Test User
+    protocol: DECL_5W
+    target: ProteinA
+  target_2:
+    S0: ACGCGA
+    S1: TCGATA
+    beads: Dynabeads SA C1
+    date: '2024-01-15'
+    group: protein
+    ids:
+    - 4
+    - 0
+    operator: Test User
+    protocol: DECL_5W
+    target: ProteinA
+  target_3:
+    S0: ACTAGC
+    S1: TCGATA
+    beads: Dynabeads SA C1
+    date: '2024-01-15'
+    group: protein
+    ids:
+    - 5
+    - 0
+    operator: Test User
+    protocol: DECL_5W
+    target: ProteinA
