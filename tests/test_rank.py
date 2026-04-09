@@ -178,28 +178,84 @@ class TestComputeSupportScore:
         result = compute_support_score(ml_result, compound_df, CODE_COLS)
         assert np.all(result <= 2.0)
 
-    def test_true_binders_have_positive_support(self, ml_result):
-        """True binders' constituent BBs are detected at a lenient threshold.
+    def test_true_binders_have_positive_support_with_fold_enrichment(self, ml_result):
+        """True binders' constituent BBs are detected via fold_enrichment >= 2.0.
 
-        At default threshold=1.0 the monosynthon signal is diluted (each
-        code_1 BB aggregates 8 compounds, 7 of which are noise), yielding
-        monosynthon zscores of ~0.6 for the true binder BBs.  A threshold of
-        0.5 reliably catches code_1=2 and code_2=3 (both ~0.60).
+        The monosynthon level has fold_enrichment from the Poisson method.
+        True binder BBs (code_1=2 with code_2=3) are genuinely enriched and
+        should have fold_enrichment > 2.0 at the monosynthon level.
+
+        NOTE: z_n >= 1.0 would FAIL here — at monosynthon level each BB
+        aggregates many noise partners, so even the strongest enriched BB only
+        reaches z_n ≈ 0.6 in this 10-BB synthetic library.  See
+        docs/references/corrected_formulas.md §SUPPORT SCORE THRESHOLD WARNING.
         """
         compound_df = ml_result["di_code_1_code_2"]
-        result = compute_support_score(
-            ml_result, compound_df, CODE_COLS, threshold_value=0.5
-        )
-        # (2,3): monosynthon code_1=2 zscore≈0.60, code_2=3 zscore≈0.60
+        # Default: fold_enrichment >= 2.0
+        result = compute_support_score(ml_result, compound_df, CODE_COLS)
         idx = compound_df.with_row_index().filter(
             (pl.col("code_1") == 2) & (pl.col("code_2") == 3)
         )["index"][0]
-        assert result[idx] > 0, "True binder (2,3) has support=0 with threshold=0.5"
+        assert result[idx] > 0, (
+            "True binder (2,3) has support=0 with fold_enrichment >= 2.0 default"
+        )
 
-    def test_empty_code_cols_raises(self, ml_result):
+    def test_default_threshold_is_fold_enrichment(self, ml_result):
+        """Confirm the default threshold_col is fold_enrichment, not zscore."""
+        import inspect
+        sig = inspect.signature(compute_support_score)
+        assert sig.parameters["threshold_col"].default == "fold_enrichment"
+        assert sig.parameters["threshold_value"].default == 2.0
+
+    def test_auto_mode_uses_fold_enrichment_when_present(self, ml_result):
+        """threshold_col='auto' should resolve to fold_enrichment >= 2.0."""
         compound_df = ml_result["di_code_1_code_2"]
-        with pytest.raises(ValueError, match="must not be empty"):
-            compute_support_score(ml_result, compound_df, [])
+        result_auto = compute_support_score(
+            ml_result, compound_df, CODE_COLS, threshold_col="auto"
+        )
+        result_explicit = compute_support_score(
+            ml_result, compound_df, CODE_COLS,
+            threshold_col="fold_enrichment", threshold_value=2.0,
+        )
+        np.testing.assert_array_equal(result_auto, result_explicit)
+
+    def test_auto_mode_percentile_fallback(self):
+        """When fold_enrichment is absent, 'auto' falls back to top-10% zscore."""
+        # Build a level DF with only zscore (no fold_enrichment)
+        mono1_df = pl.DataFrame(
+            {"code_1": list(range(10)), "zscore": [float(i) for i in range(10)]}
+        )
+        # zscore values 0..9; top-10% (90th percentile) ≈ 8.1 → only code_1=9 enriched
+        compound_df = pl.DataFrame(
+            {"code_1": list(range(10)), "code_2": [0] * 10, "zscore": [0.0] * 10}
+        )
+        ml = {
+            "mono_code_1": mono1_df,
+            "di_code_1_code_2": compound_df,
+        }
+        result = compute_support_score(
+            ml, compound_df, ["code_1", "code_2"], threshold_col="auto"
+        )
+        # Only code_1=9 should be in the top 10% → only rows with code_1=9 get +1
+        idx9 = 9
+        assert result[idx9] == 1.0
+        # code_1=0..8 should have support=0 (all below 90th percentile)
+        for i in range(9):
+            assert result[i] == 0.0, f"code_1={i} unexpectedly has support={result[i]}"
+
+    def test_missing_threshold_col_falls_back_to_fold_enrichment(self, ml_result):
+        """If the specified threshold_col is absent, fall back to fold_enrichment."""
+        compound_df = ml_result["di_code_1_code_2"]
+        # threshold_col="zscore" but the mono DFs will also have fold_enrichment
+        # → adaptive fallback uses fold_enrichment >= 2.0
+        result_fallback = compute_support_score(
+            ml_result, compound_df, CODE_COLS, threshold_col="nonexistent_col"
+        )
+        result_explicit = compute_support_score(
+            ml_result, compound_df, CODE_COLS,
+            threshold_col="fold_enrichment", threshold_value=2.0,
+        )
+        np.testing.assert_array_equal(result_fallback, result_explicit)
 
     def test_missing_level_is_skipped_gracefully(self, ml_result):
         """If a level is absent from multilevel_results, no crash."""
@@ -209,28 +265,33 @@ class TestComputeSupportScore:
         # No mono levels → all support = 0
         assert np.all(result == 0.0)
 
-    def test_missing_threshold_col_is_skipped_gracefully(self, ml_result):
-        """If threshold_col is absent from a level DF, skip it."""
-        modified = {
-            k: v.drop([c for c in ["zscore"] if c in v.columns], strict=False)
-            for k, v in ml_result.items()
+    def test_no_usable_column_skips_level(self):
+        """If a level DF has no score columns at all, it's skipped silently."""
+        mono1_df = pl.DataFrame({"code_1": [1], "some_other_col": [99.0]})
+        compound_df = pl.DataFrame({"code_1": [1], "code_2": [0]})
+        ml = {
+            "mono_code_1": mono1_df,
+            "di_code_1_code_2": compound_df,
         }
-        compound_df = ml_result["di_code_1_code_2"]
-        # Should not crash; support from zscore-bearing levels = 0
         result = compute_support_score(
-            modified, compound_df, CODE_COLS, threshold_col="zscore"
+            ml, compound_df, ["code_1", "code_2"], threshold_col="auto"
         )
-        assert isinstance(result, np.ndarray)
+        assert result[0] == 0.0
+
+    def test_empty_code_cols_raises(self, ml_result):
+        compound_df = ml_result["di_code_1_code_2"]
+        with pytest.raises(ValueError, match="must not be empty"):
+            compute_support_score(ml_result, compound_df, [])
 
     def test_3cycle_support_uses_weight_2_for_disynthons(self):
         """For 3-cycle, disynthon enrichment contributes +2."""
-        # Build a minimal 3-cycle multilevel result
+        # Build a minimal 3-cycle multilevel result using fold_enrichment
         di_df = pl.DataFrame(
-            {"code_1": [1], "code_2": [1], "zscore": [5.0]},  # enriched
+            {"code_1": [1], "code_2": [1], "fold_enrichment": [5.0]},  # enriched
         )
-        mono1_df = pl.DataFrame({"code_1": [1], "zscore": [0.1]})  # not enriched
-        mono2_df = pl.DataFrame({"code_2": [1], "zscore": [0.1]})  # not enriched
-        mono3_df = pl.DataFrame({"code_3": [1], "zscore": [0.1]})  # not enriched
+        mono1_df = pl.DataFrame({"code_1": [1], "fold_enrichment": [0.5]})  # not
+        mono2_df = pl.DataFrame({"code_2": [1], "fold_enrichment": [0.5]})  # not
+        mono3_df = pl.DataFrame({"code_3": [1], "fold_enrichment": [0.5]})  # not
         compound_df = pl.DataFrame({"code_1": [1], "code_2": [1], "code_3": [1]})
 
         ml = {
@@ -321,17 +382,19 @@ class TestComputeCompositeRankCorrectness:
 
     def test_higher_support_gives_lower_or_equal_composite(self):
         """All else equal, higher support → lower composite score → better rank."""
-        # Build a controlled 2-compound result
+        # Build a controlled 2-compound result using fold_enrichment for support
         compound_df = pl.DataFrame(
             {
                 "code_1": [0, 1],
                 "code_2": [0, 0],
                 "zscore": [3.0, 3.0],  # identical target enrichment
                 "poisson_ml_enrichment": [3.0, 3.0],
+                "fold_enrichment": [3.0, 3.0],
             }
         )
-        mono1_df = pl.DataFrame({"code_1": [0, 1], "zscore": [2.0, 0.1]})
-        mono2_df = pl.DataFrame({"code_2": [0], "zscore": [2.0]})
+        # code_1=0: fold_enrichment=5.0 (> 2.0 → enriched); code_1=1: 0.5 (not)
+        mono1_df = pl.DataFrame({"code_1": [0, 1], "fold_enrichment": [5.0, 0.5]})
+        mono2_df = pl.DataFrame({"code_2": [0], "fold_enrichment": [5.0]})
         ml = {
             "di_code_1_code_2": compound_df,
             "mono_code_1": mono1_df,
@@ -340,7 +403,7 @@ class TestComputeCompositeRankCorrectness:
         result = compute_composite_rank(ml, ["code_1", "code_2"])
         r0 = result.filter(pl.col("code_1") == 0)["composite_score"][0]
         r1 = result.filter(pl.col("code_1") == 1)["composite_score"][0]
-        # code_1=0 has support from both monosynthons; code_1=1 has less support
+        # code_1=0: monosynthons for code_1=0 and code_2=0 both enriched → more support
         assert r0 <= r1
 
 

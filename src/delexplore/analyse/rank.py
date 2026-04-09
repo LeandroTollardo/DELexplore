@@ -25,6 +25,22 @@ Composite score::
     final_score = agreement_score × (1 / (1 + support_score)) × property_penalty
 
 Lower final_score = better rank (rank 1 = best hit).
+
+Why fold_enrichment, not z-score, for support scoring
+------------------------------------------------------
+``zscore >= 1.0`` is **wrong** as a binary enrichment threshold for sub-level
+support scoring.  The z-score at monosynthon level is inherently small because
+each building block's aggregated count is diluted by contributions from many
+non-binding compound partners.  In a real 2-cycle library with 612 BBs and
+5 M reads, the most enriched BB (found in 7 of the top-10 compounds) only
+reaches z_n ≈ 0.31.  Requiring z_n ≥ 1.0 would demand ~30-fold enrichment —
+unattainable at monosynthon level.
+
+Use ``fold_enrichment >= 2.0`` (or top-10% percentile as fallback) instead.
+The z-score remains the correct metric for *ranking within a single level*;
+it is not designed for binary classification across levels.
+
+See ``docs/references/corrected_formulas.md`` §SUPPORT SCORE THRESHOLD WARNING.
 """
 
 from __future__ import annotations
@@ -40,6 +56,74 @@ from scipy.stats import rankdata
 from delexplore.analyse.aggregate import get_level_name
 
 logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Constants for adaptive threshold resolution
+# ---------------------------------------------------------------------------
+
+_AUTO_PRIMARY_COL = "fold_enrichment"
+_AUTO_PRIMARY_THRESHOLD = 2.0
+_PERCENTILE_FALLBACK = 90  # top 10% of features
+
+# Candidate columns tried in order when falling back to percentile
+_FALLBACK_CANDIDATES = ("fold_enrichment", "poisson_ml_enrichment", "zscore")
+
+
+# ---------------------------------------------------------------------------
+# Private helpers
+# ---------------------------------------------------------------------------
+
+
+def _resolve_enrichment_threshold(
+    level_df: pl.DataFrame,
+    threshold_col: str,
+    threshold_value: float,
+) -> tuple[str, float] | None:
+    """Return ``(col, cutoff)`` for binary enrichment classification.
+
+    Logic:
+    - ``threshold_col == "auto"``:
+        Use *fold_enrichment >= 2.0* if that column is present; otherwise
+        compute the 90th-percentile of the best available score column.
+    - Any other *threshold_col* that is present in *level_df*:
+        Use as specified.
+    - *threshold_col* absent from *level_df*:
+        Fall back to 90th-percentile of the best available candidate column
+        (same priority order as ``"auto"``).
+
+    Returns ``None`` if no usable column is found.
+    """
+    auto_mode = threshold_col == "auto"
+
+    if not auto_mode and threshold_col in level_df.columns:
+        return (threshold_col, threshold_value)
+
+    # Either "auto" was requested or the specified column is absent → resolve
+    if not auto_mode:
+        logger.debug(
+            "threshold_col '%s' absent in level, attempting adaptive fallback",
+            threshold_col,
+        )
+
+    # Prefer fold_enrichment with a fixed threshold
+    if _AUTO_PRIMARY_COL in level_df.columns:
+        return (_AUTO_PRIMARY_COL, _AUTO_PRIMARY_THRESHOLD)
+
+    # Fall back to top-10% percentile of whatever score column is available
+    for candidate in _FALLBACK_CANDIDATES:
+        if candidate in level_df.columns:
+            scores = level_df[candidate].drop_nulls().to_numpy()
+            if len(scores) == 0:
+                continue
+            cutoff = float(np.percentile(scores, _PERCENTILE_FALLBACK))
+            logger.debug(
+                "Support score: using top-%d%% percentile of '%s' (cutoff=%.4f)",
+                100 - _PERCENTILE_FALLBACK, candidate, cutoff,
+            )
+            return (candidate, cutoff)
+
+    return None  # nothing usable found
+
 
 # ---------------------------------------------------------------------------
 # Public helpers
@@ -99,8 +183,8 @@ def compute_support_score(
     multilevel_results: dict[str, pl.DataFrame],
     compound_df: pl.DataFrame,
     code_cols: list[str],
-    threshold_col: str = "zscore",
-    threshold_value: float = 1.0,
+    threshold_col: str = "fold_enrichment",
+    threshold_value: float = 2.0,
 ) -> np.ndarray:
     """Score each compound by how many of its constituent synthons are enriched.
 
@@ -117,15 +201,33 @@ def compute_support_score(
     The full-compound level is excluded (it is what we are scoring, not a
     constituent).
 
+    **Threshold column guidance**
+
+    Use ``threshold_col="fold_enrichment"`` (the default) with
+    ``threshold_value=2.0`` to classify sub-level features as enriched.  Do
+    **not** use ``zscore >= 1.0`` for this purpose — see module docstring and
+    ``docs/references/corrected_formulas.md`` §SUPPORT SCORE THRESHOLD WARNING.
+
+    If *threshold_col* is absent from a level DataFrame, or if
+    ``threshold_col="auto"`` is passed, the function resolves the threshold
+    adaptively:
+
+    1. Use ``fold_enrichment >= 2.0`` if that column is present.
+    2. Otherwise use the 90th-percentile of the best available score column
+       (priority: ``fold_enrichment`` → ``poisson_ml_enrichment`` → ``zscore``).
+
     Args:
-        multilevel_results: Output of :func:`~delexplore.analyse.multilevel.run_multilevel_enrichment`.
+        multilevel_results: Output of
+            :func:`~delexplore.analyse.multilevel.run_multilevel_enrichment`.
             Maps level name → enrichment DataFrame.
         compound_df: One row per full compound, containing all *code_cols*.
             Typically the full-compound level DataFrame from
             *multilevel_results*.
         code_cols: All code column names (e.g. ``["code_1", "code_2"]``).
         threshold_col: Column name used to determine enrichment status.
+            Use ``"auto"`` for adaptive resolution.
         threshold_value: Minimum value of *threshold_col* for enrichment.
+            Ignored when adaptive fallback kicks in.
 
     Returns:
         1-D numpy array of support scores, one per row of *compound_df*.
@@ -151,19 +253,22 @@ def compute_support_score(
                 continue
 
             level_df = multilevel_results[level_name]
-            if threshold_col not in level_df.columns:
+            resolved = _resolve_enrichment_threshold(
+                level_df, threshold_col, threshold_value
+            )
+            if resolved is None:
                 logger.debug(
-                    "Support: column '%s' absent in %s, skipping",
-                    threshold_col, level_name,
+                    "Support: no usable score column in %s, skipping", level_name
                 )
                 continue
 
+            col, cutoff = resolved
             level_cols = list(combo)
             enriched = (
                 level_df
-                .select(level_cols + [threshold_col])
+                .select(level_cols + [col])
                 .with_columns(
-                    (pl.col(threshold_col) >= threshold_value).alias("_enriched")
+                    (pl.col(col) >= cutoff).alias("_enriched")
                 )
                 .select(level_cols + ["_enriched"])
             )
@@ -183,8 +288,8 @@ def compute_composite_rank(
     multilevel_results: dict[str, pl.DataFrame],
     code_cols: list[str],
     method_cols: tuple[str, ...] = ("zscore", "poisson_ml_enrichment"),
-    threshold_col: str = "zscore",
-    threshold_value: float = 1.0,
+    threshold_col: str = "fold_enrichment",
+    threshold_value: float = 2.0,
     properties_df: pl.DataFrame | None = None,
     property_penalty_col: str = "property_penalty",
 ) -> pl.DataFrame:
@@ -195,7 +300,9 @@ def compute_composite_rank(
     1. Identifies the full-compound level (all *code_cols* together).
     2. Computes the method-agreement score at that level (geometric mean of
        per-method ranks; only columns present in the DataFrame are used).
-    3. Computes the multi-level support score from sub-levels.
+    3. Computes the multi-level support score from sub-levels using
+       ``fold_enrichment >= 2.0`` by default (see :func:`compute_support_score`
+       for threshold guidance).
     4. Optionally joins *properties_df* and applies a property penalty.
     5. Computes ``final_score = agreement × 1/(1+support) × penalty``.
     6. Returns the DataFrame sorted ascending by *final_score*, with a
@@ -208,8 +315,11 @@ def compute_composite_rank(
         method_cols: Enrichment columns to include in the agreement score.
             Only columns that exist in the full-compound DataFrame are used
             (others are silently skipped).
-        threshold_col: Column used for the support score enrichment check.
+        threshold_col: Column used for the support-score enrichment check.
+            Defaults to ``"fold_enrichment"``.  Pass ``"auto"`` for adaptive
+            resolution.  Do **not** use ``"zscore"`` — see module docstring.
         threshold_value: Minimum value of *threshold_col* for enrichment.
+            Defaults to ``2.0`` (2-fold enrichment).
         properties_df: Optional DataFrame with *code_cols* plus property
             columns.  If it contains a ``"property_penalty"`` column (or the
             column named by *property_penalty_col*), it is applied directly.
@@ -300,8 +410,8 @@ def compute_composite_rank(
     )
 
     logger.info(
-        "composite_rank: %d compounds ranked, method_cols=%s",
-        len(result), available_methods,
+        "composite_rank: %d compounds ranked, method_cols=%s, threshold=%s>=%.2f",
+        len(result), available_methods, threshold_col, threshold_value,
     )
     return result
 

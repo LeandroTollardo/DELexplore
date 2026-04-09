@@ -67,6 +67,25 @@ ML_enrichment = (control_total / post_total) * ((post_count + 3/8) / (control_co
 ```
 Verified: zero control case returns finite value (267.67) ✓
 
+## SUPPORT SCORE THRESHOLD WARNING
+
+Do NOT use z_n >= 1.0 as a binary enrichment threshold for the multi-level
+support score. The z-score at monosynthon level is inherently small because
+each BB's count is diluted by contributions from many non-binding compound
+partners. With 612 BBs and 5M reads, the strongest enriched BB reaches
+z_n ≈ 0.31 (8.6-fold enriched). z_n >= 1.0 would require 30-fold enrichment.
+
+Use fold_enrichment >= 2.0 instead (or top-10% percentile) for support scoring.
+The z-score remains the correct metric for RANKING within a single level.
+
+Implementation in rank.py:
+- Default: threshold_col="fold_enrichment", threshold_value=2.0
+- Adaptive ("auto"): use fold_enrichment >= 2.0 if available; otherwise
+  top-90th-percentile of best available score column
+- NEVER use threshold_col="zscore", threshold_value=1.0 for support scoring
+
+---
+
 ### Agresti-Coull CI (Faver et al. 2019, Eq. 3) — CORRECT
 ```python
 z_alpha = scipy.stats.norm.ppf(1 - alpha/2)  # 1.96 for 95% CI

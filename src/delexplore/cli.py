@@ -594,19 +594,67 @@ def explore_cluster(embedding_path: Path, output_dir: Path) -> None:
     help="Path to config.yaml.",
 )
 @click.option(
-    "--naive-counts",
-    "naive_counts_path",
-    required=True,
-    type=click.Path(exists=True, path_type=Path),
-    help="Path to naive library counts parquet or txt.",
-)
-@click.option(
     "--output",
     "output_dir",
     required=True,
     type=click.Path(path_type=Path),
     help="Directory for synthesis and truncation reports.",
 )
-def library_assess(config_path: Path, naive_counts_path: Path, output_dir: Path) -> None:
-    """Assess library synthesis quality from naive library counts."""
-    click.echo("Not yet implemented: library-assess")
+def library_assess(config_path: Path, output_dir: Path) -> None:
+    """Assess library synthesis quality from naive (blank) selection counts.
+
+    Uses blank/no_protein selections from the config as the naive library.
+    Outputs:
+      synthesis_yield.json     — per-BB yield stats (CV, Gini, outliers)
+      truncation_flags.json    — suspected truncation candidates
+      bb_yield_weights.parquet — normalization weights for enrichment analysis
+    """
+    from delexplore.qc.naive import (
+        identify_naive_selections,
+        run_naive_qc,
+    )
+
+    exp = _load_experiment_or_exit(config_path)
+    config = exp["config"]
+    counts = exp["counts"]
+    n_cycles = exp["n_cycles"]
+    code_cols = [c for c in counts.columns if c.startswith("code_")]
+
+    naive_sels = identify_naive_selections(config)
+    if not naive_sels:
+        click.echo(
+            "ERROR: No naive/blank selections found in config. "
+            "Check that selections have target='No Protein' or group='no_protein'.",
+            err=True,
+        )
+        sys.exit(1)
+
+    click.echo(
+        f"Naive library assessment: {len(naive_sels)} blank selection(s): "
+        f"{', '.join(naive_sels)}"
+    )
+
+    naive_counts = counts.filter(pl.col("selection").is_in(naive_sels))
+    total_reads = int(naive_counts["count"].sum())
+    click.echo(f"  Total naive reads: {total_reads:,}")
+
+    result = run_naive_qc(naive_counts, n_cycles, code_cols, output_dir)
+
+    click.echo(f"Library assessment complete  →  {output_dir}/")
+    click.echo(f"  Truncation candidates : {result['n_flagged_bbs']}")
+    if result["truncation_flags"]:
+        for t in result["truncation_flags"][:5]:
+            click.echo(f"    ⚠  {t['evidence']}")
+        if len(result["truncation_flags"]) > 5:
+            click.echo(f"    … and {len(result['truncation_flags']) - 5} more")
+
+    for col in code_cols:
+        yld = result["synthesis_yield"].get(col, {})
+        n_high = len(yld.get("outliers_high", []))
+        n_zero = len(yld.get("outliers_zero", []))
+        cv     = yld.get("cv", 0.0)
+        gini   = yld.get("gini", 0.0)
+        click.echo(
+            f"  {col}: CV={cv:.3f}  Gini={gini:.3f}  "
+            f"over-represented={n_high}  absent={n_zero}"
+        )
