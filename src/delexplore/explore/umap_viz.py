@@ -49,7 +49,6 @@ try:
     import matplotlib
     matplotlib.use("Agg")  # non-interactive backend; safe in all environments
     import matplotlib.pyplot as plt
-    import matplotlib.cm as cm
 
     _MPL_AVAILABLE = True
 except ImportError:
@@ -381,12 +380,6 @@ def run_umap_pipeline(
         # Map valid df rows to their position in the embedding array
         df_to_embed = {df_idx: embed_idx for embed_idx, df_idx in enumerate(valid_indices)}
 
-        # Sort valid df rows by color_col (ascending — lower composite_score = better rank)
-        color_series = df[color_col]
-        sorted_df_indices = (
-            pl.Series(valid_indices)
-            .sort()
-        )
         # Get scores for valid compounds sorted by score ascending
         valid_scores = [(df.row(i, named=True).get(color_col, None), i) for i in valid_indices]
         valid_scores_clean = [(s, i) for s, i in valid_scores if s is not None]

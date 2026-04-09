@@ -732,7 +732,7 @@ def explore_properties(hits_path: Path, smiles_col: str, output_dir: Path) -> No
     if mw_s["mean"] is not None:
         click.echo(f"  MW  mean/median     : {mw_s['mean']} / {mw_s['median']}")
     click.echo(f"  Property table      : {parquet_path.name}")
-    click.echo(f"  Summary JSON        : properties_summary.json")
+    click.echo("  Summary JSON        : properties_summary.json")
 
 
 @explore.command("render-hits")
@@ -860,6 +860,162 @@ def explore_render_hits(
 def explore_umap(hits_path: Path, output_dir: Path) -> None:
     """Compute UMAP projection of compound chemical space."""
     click.echo("Not yet implemented: explore umap")
+
+
+@explore.command("dashboard")
+@click.option(
+    "--hits",
+    "hits_path",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to ranked hits parquet or CSV (must have a 'rank' column).",
+)
+@click.option(
+    "--output",
+    "output_path",
+    required=True,
+    type=click.Path(path_type=Path),
+    help="Output HTML file path (e.g. results/dashboard.html).",
+)
+@click.option(
+    "--experiment-name",
+    "experiment_name",
+    default="DELexplore",
+    show_default=True,
+    help="Experiment name shown in the dashboard header.",
+)
+@click.option(
+    "--smiles-col",
+    "smiles_col",
+    default="smiles",
+    show_default=True,
+    help="Name of the SMILES column in the hits file.",
+)
+@click.option(
+    "--top-n",
+    "top_n",
+    default=100,
+    show_default=True,
+    help="Number of top-ranked compounds to include.",
+)
+@click.option(
+    "--properties",
+    "properties_path",
+    default=None,
+    type=click.Path(path_type=Path),
+    help=(
+        "Path to a properties parquet (output of 'explore properties').  "
+        "When supplied, adds drug-likeness section to the dashboard."
+    ),
+)
+@click.option(
+    "--umap",
+    "umap_path",
+    default=None,
+    type=click.Path(path_type=Path),
+    help=(
+        "Path to a UMAP embedding parquet with 'umap_x' and 'umap_y' columns "
+        "(output of 'explore umap').  When supplied, adds a chemical space plot."
+    ),
+)
+def explore_dashboard(
+    hits_path: Path,
+    output_path: Path,
+    experiment_name: str,
+    smiles_col: str,
+    top_n: int,
+    properties_path: Path | None,
+    umap_path: Path | None,
+) -> None:
+    """Generate a self-contained interactive HTML hit dashboard.
+
+    The dashboard always includes summary cards and a sortable/searchable hit
+    table.  Additional sections are added progressively:
+
+    - Structure SVGs: when the hits file has a SMILES column and RDKit is
+      installed.
+    - Score histogram: when hits have a composite_score column.
+    - UMAP scatter: when --umap is supplied.
+    - Drug-likeness: when --properties is supplied.
+    """
+    import numpy as np
+
+    from delexplore.explore.dashboard import generate_dashboard
+
+    # Load hits
+    if hits_path.suffix.lower() == ".parquet":
+        hits = pl.read_parquet(hits_path)
+    else:
+        hits = pl.read_csv(hits_path)
+
+    if "rank" not in hits.columns:
+        click.echo(
+            "ERROR: hits file must contain a 'rank' column. "
+            "Run 'analyse rank' first.",
+            err=True,
+        )
+        sys.exit(1)
+
+    n_total = len(hits)
+
+    # Optional: UMAP embedding
+    umap_embedding: np.ndarray | None = None
+    if umap_path is not None:
+        if not umap_path.exists():
+            click.echo(f"ERROR: --umap file not found: {umap_path}", err=True)
+            sys.exit(1)
+        umap_df = pl.read_parquet(umap_path)
+        if "umap_x" not in umap_df.columns or "umap_y" not in umap_df.columns:
+            click.echo(
+                f"ERROR: UMAP parquet must have 'umap_x' and 'umap_y' columns. "
+                f"Available: {umap_df.columns}",
+                err=True,
+            )
+            sys.exit(1)
+        # Align embedding to the top-N hits in the same order
+        code_cols = [c for c in hits.columns if c.startswith("code_")]
+        if code_cols:
+            top_hits = hits.sort("rank").head(top_n)
+            merged = top_hits.join(
+                umap_df.select(code_cols + ["umap_x", "umap_y"]),
+                on=code_cols,
+                how="left",
+            )
+            xs = merged["umap_x"].fill_null(0).to_numpy()
+            ys = merged["umap_y"].fill_null(0).to_numpy()
+            umap_embedding = np.column_stack([xs, ys])
+        else:
+            click.echo(
+                "WARNING: No code_* columns found — cannot align UMAP embedding.",
+                err=True,
+            )
+
+    # Optional: properties
+    properties_df: pl.DataFrame | None = None
+    if properties_path is not None:
+        if not properties_path.exists():
+            click.echo(f"ERROR: --properties file not found: {properties_path}", err=True)
+            sys.exit(1)
+        properties_df = pl.read_parquet(properties_path)
+        click.echo(f"  Properties loaded: {len(properties_df):,} compounds")
+
+    click.echo(
+        f"Generating dashboard: top-{top_n} of {n_total:,} compounds  →  {output_path}"
+    )
+
+    out = generate_dashboard(
+        ranked_df=hits,
+        smiles_col=smiles_col,
+        top_n=top_n,
+        umap_embedding=umap_embedding,
+        properties_df=properties_df,
+        output_path=output_path,
+        experiment_name=experiment_name,
+        n_total_compounds=n_total,
+    )
+
+    click.echo(f"Dashboard written to {out}")
+    click.echo(f"  Open in a browser: file://{out.resolve()}")
 
 
 @explore.command("cluster")

@@ -38,7 +38,6 @@ try:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    import matplotlib.cm as cm
 
     _MPL_AVAILABLE = True
 except ImportError:

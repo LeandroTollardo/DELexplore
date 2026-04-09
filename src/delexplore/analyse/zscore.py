@@ -115,6 +115,59 @@ def calculate_agresti_coull_ci(
     return ci_lower, ci_upper
 
 
+def calculate_mad_zscore(
+    counts: np.ndarray,
+    total_reads: int,
+    diversity: int,
+) -> np.ndarray:
+    """Compute the MAD-normalized z-score (Wichert et al. 2024, DELi Eq. 3).
+
+    Replaces the theoretical standard deviation with a robust estimate based
+    on the Median Absolute Deviation (MAD), making the score resistant to
+    outlier compounds that inflate the variance::
+
+        p_i     = counts / total_reads          (observed fractions)
+        median  = median(p_i)
+        MAD     = 1.4286 × median(|p_i − median|)
+        z_mad   = (p_i − median) / MAD
+
+    The factor 1.4286 ≈ 1 / 0.6745 scales the MAD to be a consistent
+    estimator of the standard deviation under Gaussian assumptions, matching
+    the convention in Wellnitz et al. (DELi) Eq. 3.
+
+    When MAD == 0 (all observed fractions are identical, or there is only one
+    feature), the function returns an array of zeros rather than dividing by
+    zero.
+
+    Args:
+        counts: Observed counts per feature (non-negative integer array).
+        total_reads: Total decoded reads in this selection/condition.
+        diversity: Number of distinct features at this synthon level.
+            Used only for input validation; not needed in the formula itself.
+
+    Returns:
+        Array of MAD z-score values, same shape as *counts*.
+
+    Raises:
+        ValueError: If total_reads <= 0 or diversity < 1.
+    """
+    counts = np.asarray(counts, dtype=float)
+
+    if total_reads <= 0:
+        raise ValueError(f"total_reads must be > 0, got {total_reads}")
+    if diversity < 1:
+        raise ValueError(f"diversity must be >= 1, got {diversity}")
+
+    p_i = counts / total_reads
+    med = np.median(p_i)
+    mad = 1.4286 * np.median(np.abs(p_i - med))
+
+    if mad == 0.0:
+        return np.zeros_like(counts)
+
+    return (p_i - med) / mad
+
+
 def zscore_enrichment(
     counts: np.ndarray,
     total_reads: int,

@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 try:
     from rdkit import Chem
-    from rdkit.Chem import Descriptors, QED
+    from rdkit.Chem import QED, Descriptors
     from rdkit.rdBase import BlockLogs
 
     _RDKIT_AVAILABLE = True

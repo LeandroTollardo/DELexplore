@@ -83,7 +83,8 @@ def _placeholder_png(width: int, height: int, message: str = "Invalid SMILES") -
     Falls back to a raw 1×1 transparent PNG if Pillow is unavailable.
     """
     try:
-        from PIL import Image, ImageDraw as PilDraw, ImageFont
+        from PIL import Image, ImageFont
+        from PIL import ImageDraw as PilDraw
 
         img = Image.new("RGB", (width, height), color=(248, 248, 248))
         draw = PilDraw.Draw(img)

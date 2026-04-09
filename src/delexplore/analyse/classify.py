@@ -229,6 +229,105 @@ def classify_binders(
     return classified.select(code_cols + ["binder_type"])
 
 
+def flag_frequent_hitters(
+    enrichment_by_target: dict[str, pl.DataFrame],
+    code_cols: list[str],
+    threshold_col: str = "zscore",
+    threshold_value: float = 1.0,
+    min_targets: int = 2,
+) -> pl.DataFrame:
+    """Flag compounds enriched across multiple unrelated experiments.
+
+    A compound that shows enrichment in many independent target experiments is
+    likely a **frequent hitter** — a promiscuous binder, aggregator, or
+    assay artifact — rather than a selective binder to any single target.
+
+    For each compound, this function counts the number of experiments (keys in
+    *enrichment_by_target*) in which it meets the enrichment threshold, then
+    marks it as a frequent hitter if that count reaches *min_targets*.
+
+    Args:
+        enrichment_by_target: Mapping from experiment/target name to enrichment
+            DataFrame.  Each DataFrame must contain all columns in *code_cols*
+            and *threshold_col*.  Keys should represent independent experiments
+            (different targets, different proteins, different assay conditions).
+        code_cols: Compound-identity column names shared across all DataFrames.
+        threshold_col: Column used to determine enrichment status.
+        threshold_value: Minimum value of *threshold_col* to be enriched.
+        min_targets: Minimum number of experiments in which a compound must be
+            enriched to be flagged as a frequent hitter.  Must be >= 1.
+
+    Returns:
+        DataFrame with columns:
+
+        - all columns in *code_cols* — compound identity.
+        - ``n_targets_enriched`` (int) — number of experiments where this
+          compound met the enrichment threshold.
+        - ``is_frequent_hitter`` (bool) — ``True`` when
+          ``n_targets_enriched >= min_targets``.
+
+        All compounds that appear in any of the input DataFrames are included.
+        Compounds not present in a given experiment are treated as not enriched
+        (count = 0 for that experiment).
+
+    Raises:
+        ValueError: If *enrichment_by_target* is empty, *code_cols* is empty,
+            *min_targets* < 1, or *threshold_col* is absent from any DataFrame.
+    """
+    if not enrichment_by_target:
+        raise ValueError("enrichment_by_target must not be empty")
+    if not code_cols:
+        raise ValueError("code_cols must not be empty")
+    if min_targets < 1:
+        raise ValueError(f"min_targets must be >= 1, got {min_targets}")
+
+    for target, df in enrichment_by_target.items():
+        missing_codes = [c for c in code_cols if c not in df.columns]
+        if missing_codes:
+            raise ValueError(
+                f"code_cols {missing_codes} not found in DataFrame for target '{target}'"
+            )
+        if threshold_col not in df.columns:
+            raise ValueError(
+                f"Column '{threshold_col}' not found in DataFrame for target '{target}'"
+            )
+
+    all_compounds = _union_compounds(enrichment_by_target.values(), code_cols)
+
+    # For each experiment, build a boolean "enriched in this experiment" column,
+    # then sum across all experiments for n_targets_enriched.
+    enriched_cols: list[str] = []
+    combined = all_compounds
+
+    for target, df in enrichment_by_target.items():
+        col = f"_e_{target}"
+        enriched_cols.append(col)
+        per_target = _any_enriched(
+            [df], code_cols, threshold_col, threshold_value, all_compounds, col
+        )
+        combined = combined.join(per_target, on=code_cols, how="left").with_columns(
+            pl.col(col).fill_null(False)
+        )
+
+    combined = combined.with_columns(
+        pl.sum_horizontal(
+            [pl.col(c).cast(pl.Int32) for c in enriched_cols]
+        ).alias("n_targets_enriched")
+    ).drop(enriched_cols)
+
+    combined = combined.with_columns(
+        (pl.col("n_targets_enriched") >= min_targets).alias("is_frequent_hitter")
+    )
+
+    n_flagged = int(combined["is_frequent_hitter"].sum())
+    logger.info(
+        "flag_frequent_hitters: %d / %d compounds flagged (min_targets=%d, threshold %s >= %.2f)",
+        n_flagged, len(combined), min_targets, threshold_col, threshold_value,
+    )
+
+    return combined.select(code_cols + ["n_targets_enriched", "is_frequent_hitter"])
+
+
 def classify_bead_artifacts(
     enrichment_by_bead: dict[str, pl.DataFrame],
     threshold_col: str = "zscore",
