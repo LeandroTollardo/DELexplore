@@ -446,6 +446,24 @@ def analyse_deseq(
         "If not supplied, runs multilevel enrichment on the fly."
     ),
 )
+@click.option(
+    "--library-parquet",
+    "library_parquet",
+    default=None,
+    type=click.Path(path_type=Path),
+    help=(
+        "Path to library.parquet containing SMILES per compound "
+        "(columns: code_* + smiles).  When provided, drug-likeness "
+        "property penalty is factored into the composite score."
+    ),
+)
+@click.option(
+    "--smiles-col",
+    "smiles_col",
+    default="smiles",
+    show_default=True,
+    help="Name of the SMILES column in --library-parquet.",
+)
 def analyse_rank(
     config_path: Path,
     post_group: str,
@@ -453,12 +471,17 @@ def analyse_rank(
     output_dir: Path,
     top_n: int,
     input_dir: Path | None,
+    library_parquet: Path | None,
+    smiles_col: str,
 ) -> None:
     """Produce a consensus hit ranking across all enrichment methods.
 
     If --input is supplied, loads pre-computed enrichment parquets from that
     directory (looks for both 'zscore_*.parquet' and 'poisson_*.parquet').
     Otherwise runs multi-method enrichment from scratch.
+
+    If --library-parquet is supplied, drug-likeness properties are computed
+    from SMILES and factored into the composite score as a property penalty.
 
     Outputs:
       hits_top{N}.csv          — top-N ranked compounds
@@ -516,7 +539,54 @@ def analyse_rank(
             methods=("zscore", "poisson_ml"),
         )
 
-    ranked = compute_composite_rank(multilevel, code_cols)
+    # --- Property penalty (optional) ---
+    properties_df: pl.DataFrame | None = None
+    if library_parquet is not None:
+        if not library_parquet.exists():
+            click.echo(
+                f"ERROR: --library-parquet file not found: {library_parquet}",
+                err=True,
+            )
+            sys.exit(1)
+        click.echo(f"Loading library SMILES from {library_parquet}")
+        try:
+            from delexplore.explore.properties import compute_properties_for_ranking
+
+            lib_df = pl.read_parquet(library_parquet)
+            missing_cols = [c for c in code_cols if c not in lib_df.columns]
+            if missing_cols:
+                click.echo(
+                    f"ERROR: Library parquet is missing code columns: {missing_cols}",
+                    err=True,
+                )
+                sys.exit(1)
+            if smiles_col not in lib_df.columns:
+                click.echo(
+                    f"ERROR: Library parquet has no '{smiles_col}' column. "
+                    f"Available: {lib_df.columns}",
+                    err=True,
+                )
+                sys.exit(1)
+
+            click.echo(
+                f"  Computing drug-likeness properties for {len(lib_df):,} compounds…"
+            )
+            properties_df = compute_properties_for_ranking(
+                lib_df, smiles_col=smiles_col, code_cols=code_cols
+            )
+            click.echo("  Property penalty computed and will be applied to ranking.")
+        except ImportError:
+            click.echo(
+                "WARNING: RDKit not installed — property penalty skipped. "
+                "Install with: pip install rdkit",
+                err=True,
+            )
+    else:
+        click.echo("No --library-parquet provided — property penalty not applied.")
+
+    ranked = compute_composite_rank(
+        multilevel, code_cols, properties_df=properties_df
+    )
 
     output_dir.mkdir(parents=True, exist_ok=True)
     ranked.write_parquet(output_dir / "ranked_all.parquet")
@@ -538,6 +608,238 @@ def analyse_rank(
 @main.group()
 def explore() -> None:
     """Chemical space visualisation and clustering commands."""
+
+
+@explore.command("properties")
+@click.option(
+    "--hits",
+    "hits_path",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to ranked hits parquet or CSV file.",
+)
+@click.option(
+    "--smiles-col",
+    "smiles_col",
+    default="smiles",
+    show_default=True,
+    help="Name of the SMILES column in the hits file.",
+)
+@click.option(
+    "--output",
+    "output_dir",
+    required=True,
+    type=click.Path(path_type=Path),
+    help="Directory for property output files.",
+)
+def explore_properties(hits_path: Path, smiles_col: str, output_dir: Path) -> None:
+    """Compute drug-likeness and macrocycle properties for hit compounds.
+
+    Outputs:
+      properties_{timestamp}.parquet  — full property table
+      properties_summary.json         — aggregate statistics
+    """
+    import json
+    from datetime import datetime
+
+    try:
+        from delexplore.explore.macrocycle import add_macrocycle_columns
+        from delexplore.explore.properties import (
+            assess_druglikeness,
+            calculate_properties,
+        )
+    except ImportError:
+        click.echo(
+            "ERROR: RDKit is required for property calculation. "
+            "Install with: pip install rdkit",
+            err=True,
+        )
+        sys.exit(1)
+
+    # Load hits file — support both parquet and CSV
+    if hits_path.suffix.lower() == ".parquet":
+        hits = pl.read_parquet(hits_path)
+    else:
+        hits = pl.read_csv(hits_path)
+
+    if smiles_col not in hits.columns:
+        click.echo(
+            f"ERROR: SMILES column '{smiles_col}' not found. "
+            f"Available columns: {hits.columns}",
+            err=True,
+        )
+        sys.exit(1)
+
+    click.echo(f"Computing properties for {len(hits):,} compounds…")
+
+    props = calculate_properties(hits, smiles_col=smiles_col)
+    props = assess_druglikeness(props)
+    props = add_macrocycle_columns(props, smiles_col=smiles_col)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    parquet_path = output_dir / f"properties_{timestamp}.parquet"
+    props.write_parquet(parquet_path)
+
+    # --- Summary statistics ---
+    n_total = len(props)
+    n_valid = int(props["mw"].drop_nulls().len())
+    n_macrocycles = int(props["is_macrocycle"].sum()) if "is_macrocycle" in props.columns else 0
+    frac_lipinski = (
+        float(props["lipinski_pass"].drop_nulls().mean())
+        if "lipinski_pass" in props.columns and props["lipinski_pass"].drop_nulls().len() > 0
+        else None
+    )
+    frac_bro5 = (
+        float(props["bro5_pass"].drop_nulls().mean())
+        if "bro5_pass" in props.columns and props["bro5_pass"].drop_nulls().len() > 0
+        else None
+    )
+
+    def _stat(col: str) -> dict:
+        series = props[col].drop_nulls() if col in props.columns else pl.Series([])
+        if series.len() == 0:
+            return {"mean": None, "median": None}
+        return {
+            "mean": round(float(series.mean()), 3),
+            "median": round(float(series.median()), 3),
+        }
+
+    summary = {
+        "n_compounds": n_total,
+        "n_valid_smiles": n_valid,
+        "n_macrocycles": n_macrocycles,
+        "fraction_lipinski_pass": round(frac_lipinski, 4) if frac_lipinski is not None else None,
+        "fraction_bro5_pass": round(frac_bro5, 4) if frac_bro5 is not None else None,
+        "mw": _stat("mw"),
+        "logp": _stat("logp"),
+        "tpsa": _stat("tpsa"),
+    }
+
+    summary_path = output_dir / "properties_summary.json"
+    summary_path.write_text(json.dumps(summary, indent=2))
+
+    click.echo(f"Properties computed  →  {output_dir}/")
+    click.echo(f"  Compounds          : {n_total:,}")
+    click.echo(f"  Valid SMILES        : {n_valid:,} ({n_valid/n_total*100:.1f}%)" if n_total else "")
+    click.echo(f"  Macrocycles         : {n_macrocycles}")
+    if frac_lipinski is not None:
+        click.echo(f"  Lipinski pass       : {frac_lipinski*100:.1f}%")
+    if frac_bro5 is not None:
+        click.echo(f"  bRo5 pass           : {frac_bro5*100:.1f}%")
+    mw_s = _stat("mw")
+    if mw_s["mean"] is not None:
+        click.echo(f"  MW  mean/median     : {mw_s['mean']} / {mw_s['median']}")
+    click.echo(f"  Property table      : {parquet_path.name}")
+    click.echo(f"  Summary JSON        : properties_summary.json")
+
+
+@explore.command("render-hits")
+@click.option(
+    "--hits",
+    "hits_path",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to ranked hits parquet or CSV file.",
+)
+@click.option(
+    "--smiles-col",
+    "smiles_col",
+    default="smiles",
+    show_default=True,
+    help="Name of the SMILES column.",
+)
+@click.option(
+    "--top-n",
+    "top_n",
+    default=20,
+    show_default=True,
+    help="Number of top compounds to render.",
+)
+@click.option(
+    "--output",
+    "output_path",
+    required=True,
+    type=click.Path(path_type=Path),
+    help="Output file path (.svg or .png).",
+)
+@click.option(
+    "--highlight",
+    "highlight",
+    default=None,
+    help="SMARTS pattern to highlight in all structures.",
+)
+@click.option(
+    "--cols-per-row",
+    "cols_per_row",
+    default=4,
+    show_default=True,
+    help="Number of structures per grid row.",
+)
+def explore_render_hits(
+    hits_path: Path,
+    smiles_col: str,
+    top_n: int,
+    output_path: Path,
+    highlight: str | None,
+    cols_per_row: int,
+) -> None:
+    """Render a grid image of the top-N ranked hit structures.
+
+    The output format is determined by the file extension of --output
+    (.svg for SVG, anything else for PNG).
+    """
+    try:
+        from delexplore.explore.structures import render_hit_grid
+    except ImportError:
+        click.echo(
+            "ERROR: RDKit is required for structure rendering. "
+            "Install with: pip install rdkit",
+            err=True,
+        )
+        sys.exit(1)
+
+    suffix = output_path.suffix.lower()
+    img_format = "svg" if suffix == ".svg" else "png"
+
+    # Load hits file — support both parquet and CSV
+    if hits_path.suffix.lower() == ".parquet":
+        hits = pl.read_parquet(hits_path)
+    else:
+        hits = pl.read_csv(hits_path)
+
+    if smiles_col not in hits.columns:
+        click.echo(
+            f"ERROR: SMILES column '{smiles_col}' not found. "
+            f"Available columns: {hits.columns}",
+            err=True,
+        )
+        sys.exit(1)
+
+    if "rank" not in hits.columns:
+        click.echo(
+            "WARNING: No 'rank' column found — using row order as rank.",
+            err=True,
+        )
+        hits = hits.with_columns(
+            pl.Series("rank", range(1, len(hits) + 1))
+        )
+
+    n_render = min(top_n, len(hits))
+    click.echo(f"Rendering {n_render} structures ({img_format.upper()})…")
+
+    render_hit_grid(
+        hits,
+        smiles_col=smiles_col,
+        top_n=top_n,
+        output_path=output_path,
+        img_format=img_format,
+        cols_per_row=cols_per_row,
+        highlight_substructure=highlight,
+    )
+
+    click.echo(f"Structure grid written to {output_path}")
 
 
 @explore.command("umap")
