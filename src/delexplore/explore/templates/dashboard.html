@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DELexplore Hit Dashboard — {{ experiment_name }}</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #222;
+      background: #f7f8fa;
+      padding: 24px;
+    }
+    h1 { font-size: 1.6rem; font-weight: 600; color: #111; margin-bottom: 4px; }
+    h2 { font-size: 1.1rem; font-weight: 600; color: #333; margin: 0 0 10px; }
+    p.subtitle { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; }
+    section {
+      background: #fff;
+      border: 1px solid #e2e4e9;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Summary cards ── */
+    .cards { display: flex; gap: 14px; flex-wrap: wrap; }
+    .card {
+      flex: 1; min-width: 130px;
+      border-radius: 6px; padding: 12px 16px;
+      border: 1px solid #e2e4e9;
+      background: #f8f9fb;
+    }
+    .card .label {
+      font-size: 0.75rem; color: #666;
+      text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;
+    }
+    .card .value { font-size: 1.3rem; font-weight: 700; color: #111; }
+    .card .sub   { font-size: 0.78rem; color: #888; margin-top: 2px; }
+
+    /* ── Hit table ── */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th {
+      background: #f1f3f6; font-weight: 600; text-align: left;
+      padding: 7px 10px; border-bottom: 2px solid #e2e4e9;
+      cursor: pointer; user-select: none; white-space: nowrap;
+    }
+    th:hover { background: #e8ebf0; }
+    th .sort-icon { font-size: 0.7rem; margin-left: 4px; color: #aaa; }
+    th.sort-asc  .sort-icon::after { content: " ▲"; color: #2563eb; }
+    th.sort-desc .sort-icon::after { content: " ▼"; color: #2563eb; }
+    th:not(.sort-asc):not(.sort-desc) .sort-icon::after { content: " ⇅"; }
+    td {
+      padding: 5px 10px; border-bottom: 1px solid #f0f1f3;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafbfc; }
+    .rank-badge {
+      display: inline-block;
+      background: #2563eb; color: #fff;
+      border-radius: 12px; padding: 1px 8px;
+      font-size: 0.78rem; font-weight: 700;
+    }
+    .rank-badge.top3 { background: #d97706; }
+    .rank-badge.top1 { background: #dc2626; }
+    .structure-cell { min-width: 160px; }
+    .structure-cell svg, .structure-cell img { display: block; }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ── Score bar ── */
+    .score-bar-wrap { display: flex; align-items: center; gap: 6px; }
+    .score-bar {
+      height: 8px; border-radius: 4px; background: #2563eb;
+      min-width: 2px;
+    }
+    .score-val { font-size: 0.82rem; color: #444; white-space: nowrap; }
+
+    /* ── Chip / tag ── */
+    .pass  { color: #15803d; font-weight: 600; }
+    .fail  { color: #991b1b; }
+    .na    { color: #aaa; }
+
+    /* ── Histogram ── */
+    .hist-wrap { display: flex; align-items: flex-end; gap: 3px; height: 100px; }
+    .hist-bar {
+      flex: 1; background: #2563eb; border-radius: 2px 2px 0 0;
+      transition: opacity 0.1s;
+      min-height: 2px;
+    }
+    .hist-bar:hover { opacity: 0.7; }
+    .hist-axis {
+      display: flex; justify-content: space-between;
+      font-size: 0.7rem; color: #888; margin-top: 4px;
+    }
+
+    /* ── UMAP scatter ── */
+    .umap-img { max-width: 100%; border: 1px solid #e2e4e9; border-radius: 6px; }
+
+    /* ── Drug-likeness ── */
+    .dl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .dl-item {
+      background: #f8f9fb; border: 1px solid #e2e4e9; border-radius: 6px;
+      padding: 10px 14px;
+    }
+    .dl-label { font-size: 0.75rem; color: #666; text-transform: uppercase;
+                letter-spacing: 0.04em; }
+    .dl-value { font-size: 1.1rem; font-weight: 700; color: #111; }
+    .dl-sub   { font-size: 0.78rem; color: #888; }
+
+    /* ── Progress bar (fraction pass) ── */
+    .prog-wrap {
+      height: 10px; background: #e5e7eb; border-radius: 5px; margin-top: 6px;
+    }
+    .prog-fill {
+      height: 100%; background: #22c55e; border-radius: 5px;
+      transition: width 0.3s;
+    }
+
+    /* ── Search box ── */
+    .search-wrap { margin-bottom: 12px; }
+    #search-input {
+      width: 100%; max-width: 320px;
+      padding: 6px 10px; font-size: 0.88rem;
+      border: 1px solid #d1d5db; border-radius: 5px;
+      outline: none;
+    }
+    #search-input:focus { border-color: #2563eb; }
+
+    /* ── Tabs ── */
+    .tab-bar { display: flex; gap: 0; border-bottom: 2px solid #e2e4e9; margin-bottom: 16px; }
+    .tab {
+      padding: 6px 18px; cursor: pointer; font-size: 0.88rem; font-weight: 500;
+      border-bottom: 2px solid transparent; margin-bottom: -2px; color: #666;
+    }
+    .tab.active { border-bottom-color: #2563eb; color: #2563eb; font-weight: 600; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Footer ── */
+    footer { text-align: center; color: #999; font-size: 0.78rem; margin-top: 16px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>DELexplore Hit Dashboard</h1>
+  <p class="subtitle">
+    Experiment: <strong>{{ experiment_name }}</strong>
+    &nbsp;|&nbsp; Generated {{ generated_at }}
+    {% if n_total_compounds %}
+    &nbsp;|&nbsp; Top {{ hits | length }} of {{ n_total_compounds | default(hits | length) }} ranked compounds
+    {% endif %}
+  </p>
+
+  <!-- ── Summary cards ── -->
+  <section>
+    <h2>Summary</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Hits shown</div>
+        <div class="value">{{ hits | length }}</div>
+        {% if n_total_compounds %}
+        <div class="sub">of {{ n_total_compounds }} total</div>
+        {% endif %}
+      </div>
+      {% if score_stats %}
+      <div class="card">
+        <div class="label">Best score (rank 1)</div>
+        <div class="value">{{ "%.4f" | format(score_stats.min) }}</div>
+        <div class="sub">composite_score (lower = better)</div>
+      </div>
+      <div class="card">
+        <div class="label">Median score</div>
+        <div class="value">{{ "%.4f" | format(score_stats.median) }}</div>
+      </div>
+      {% endif %}
+      {% if prop_stats %}
+      <div class="card">
+        <div class="label">Lipinski pass</div>
+        <div class="value">{{ "%.0f" | format(prop_stats.lipinski_pass_pct) }}%</div>
+        <div class="sub">of compounds with SMILES</div>
+      </div>
+      <div class="card">
+        <div class="label">Median MW</div>
+        <div class="value">{{ "%.0f" | format(prop_stats.median_mw) }}</div>
+        <div class="sub">Da</div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- ── Hit table ── -->
+  <section id="hits-section">
+    <h2>Ranked Hits</h2>
+    <div class="search-wrap">
+      <input id="search-input" type="text" placeholder="Search by SMILES, rank, code…" oninput="filterTable()">
+    </div>
+    <div class="table-wrap">
+      <table id="hit-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)" data-col="0">Rank<span class="sort-icon"></span></th>
+            {% if has_smiles %}
+            <th>Structure</th>
+            {% endif %}
+            {% for col in code_cols %}
+            <th onclick="sortTable({{ loop.index }})" data-col="{{ loop.index }}">{{ col }}<span class="sort-icon"></span></th>
+            {% endfor %}
+            {% if has_composite_score %}
+            <th onclick="sortTable({{ code_cols | length + 1 }})" data-col="{{ code_cols | length + 1 }}">Score<span class="sort-icon"></span></th>
+            {% endif %}
+            {% if has_zscore %}
+            <th onclick="sortTable({{ code_cols | length + 2 }})" data-col="{{ code_cols | length + 2 }}">z-score<span class="sort-icon"></span></th>
+            {% endif %}
+            {% if has_support_score %}
+            <th onclick="sortTable({{ code_cols | length + 3 }})" data-col="{{ code_cols | length + 3 }}">Support<span class="sort-icon"></span></th>
+            {% endif %}
+            {% if has_lipinski %}
+            <th>Lipinski</th>
+            {% endif %}
+            {% if has_mw %}
+            <th>MW</th>
+            {% endif %}
+            {% if has_logp %}
+            <th>logP</th>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          {% for row in hits %}
+          <tr data-search="{{ row.search_key }}">
+            <td>
+              {% if row.rank == 1 %}
+              <span class="rank-badge top1">{{ row.rank }}</span>
+              {% elif row.rank <= 3 %}
+              <span class="rank-badge top3">{{ row.rank }}</span>
+              {% else %}
+              <span class="rank-badge">{{ row.rank }}</span>
+              {% endif %}
+            </td>
+            {% if has_smiles %}
+            <td class="structure-cell">{{ row.svg | safe }}</td>
+            {% endif %}
+            {% for col in code_cols %}
+            <td class="num">{{ row.codes[col] }}</td>
+            {% endfor %}
+            {% if has_composite_score %}
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar" style="width:{{ row.score_bar_width }}px"></div>
+                <span class="score-val">{{ "%.4f" | format(row.composite_score) }}</span>
+              </div>
+            </td>
+            {% endif %}
+            {% if has_zscore %}
+            <td class="num">{{ "%.2f" | format(row.zscore) if row.zscore is not none else "—" }}</td>
+            {% endif %}
+            {% if has_support_score %}
+            <td class="num">{{ row.support_score | int }}</td>
+            {% endif %}
+            {% if has_lipinski %}
+            <td>
+              {% if row.lipinski_pass is none %}
+              <span class="na">—</span>
+              {% elif row.lipinski_pass %}
+              <span class="pass">✓</span>
+              {% else %}
+              <span class="fail">✗</span>
+              {% endif %}
+            </td>
+            {% endif %}
+            {% if has_mw %}
+            <td class="num">{{ "%.1f" | format(row.mw) if row.mw is not none else "—" }}</td>
+            {% endif %}
+            {% if has_logp %}
+            <td class="num">{{ "%.2f" | format(row.logp) if row.logp is not none else "—" }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── Score histogram ── -->
+  {% if score_hist %}
+  <section>
+    <h2>Composite Score Distribution (top {{ hits | length }} compounds)</h2>
+    <div class="hist-wrap" id="hist-wrap">
+      {% for bar in score_hist.bars %}
+      <div class="hist-bar"
+           style="height: {{ bar.height_pct }}%"
+           title="{{ bar.label }}"></div>
+      {% endfor %}
+    </div>
+    <div class="hist-axis">
+      <span>{{ "%.3f" | format(score_hist.x_min) }}</span>
+      <span>← composite score →</span>
+      <span>{{ "%.3f" | format(score_hist.x_max) }}</span>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── UMAP plot ── -->
+  {% if umap_b64 %}
+  <section>
+    <h2>Chemical Space (UMAP Projection)</h2>
+    <img class="umap-img" src="data:image/svg+xml;base64,{{ umap_b64 }}"
+         alt="UMAP chemical space projection">
+  </section>
+  {% endif %}
+
+  <!-- ── Drug-likeness ── -->
+  {% if prop_stats %}
+  <section>
+    <h2>Drug-Likeness Properties</h2>
+    <div class="dl-grid">
+      <div class="dl-item">
+        <div class="dl-label">Lipinski pass</div>
+        <div class="dl-value">{{ "%.0f" | format(prop_stats.lipinski_pass_pct) }}%</div>
+        <div class="prog-wrap"><div class="prog-fill" style="width:{{ prop_stats.lipinski_pass_pct }}%"></div></div>
+      </div>
+      {% if prop_stats.bro5_pass_pct is not none %}
+      <div class="dl-item">
+        <div class="dl-label">bRo5 pass</div>
+        <div class="dl-value">{{ "%.0f" | format(prop_stats.bro5_pass_pct) }}%</div>
+        <div class="prog-wrap"><div class="prog-fill" style="width:{{ prop_stats.bro5_pass_pct }}%"></div></div>
+      </div>
+      {% endif %}
+      <div class="dl-item">
+        <div class="dl-label">Median MW (Da)</div>
+        <div class="dl-value">{{ "%.1f" | format(prop_stats.median_mw) }}</div>
+        <div class="dl-sub">mean {{ "%.1f" | format(prop_stats.mean_mw) }}</div>
+      </div>
+      <div class="dl-item">
+        <div class="dl-label">Median logP</div>
+        <div class="dl-value">{{ "%.2f" | format(prop_stats.median_logp) }}</div>
+        <div class="dl-sub">range [{{ "%.1f" | format(prop_stats.min_logp) }}, {{ "%.1f" | format(prop_stats.max_logp) }}]</div>
+      </div>
+      <div class="dl-item">
+        <div class="dl-label">Median TPSA (Å²)</div>
+        <div class="dl-value">{{ "%.1f" | format(prop_stats.median_tpsa) }}</div>
+      </div>
+      {% if prop_stats.median_qed is not none %}
+      <div class="dl-item">
+        <div class="dl-label">Median QED</div>
+        <div class="dl-value">{{ "%.3f" | format(prop_stats.median_qed) }}</div>
+        <div class="dl-sub">0=worst · 1=best</div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Property histograms -->
+    {% for phist in prop_histograms %}
+    <div style="margin-top: 18px;">
+      <h2 style="font-size:0.9rem; margin-bottom:6px;">{{ phist.title }}</h2>
+      <div class="hist-wrap">
+        {% for bar in phist.bars %}
+        <div class="hist-bar" style="height:{{ bar.height_pct }}%; background:{{ phist.color }};"
+             title="{{ bar.label }}"></div>
+        {% endfor %}
+      </div>
+      <div class="hist-axis">
+        <span>{{ phist.x_min }}</span>
+        <span>← {{ phist.title }} →</span>
+        <span>{{ phist.x_max }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <footer>
+    Generated by DELexplore &nbsp;|&nbsp; Pure Python, no R &nbsp;|&nbsp; {{ generated_at }}
+  </footer>
+
+</div>
+
+<script>
+// ── Sortable table ──────────────────────────────────────────────────────────
+
+let sortCol = -1;
+let sortAsc = true;
+
+function sortTable(col) {
+  const table = document.getElementById('hit-table');
+  const tbody = document.getElementById('table-body');
+  const ths = table.querySelectorAll('th[data-col]');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+
+  if (sortCol === col) {
+    sortAsc = !sortAsc;
+  } else {
+    sortCol = col;
+    sortAsc = true;
+  }
+
+  ths.forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+  });
+  const activeTh = table.querySelector(`th[data-col="${col}"]`);
+  if (activeTh) activeTh.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+
+  rows.sort((a, b) => {
+    const aCell = a.cells[col];
+    const bCell = b.cells[col];
+    const aText = aCell ? aCell.textContent.trim() : '';
+    const bText = bCell ? bCell.textContent.trim() : '';
+    const aNum = parseFloat(aText.replace(/[^0-9.\-]/g, ''));
+    const bNum = parseFloat(bText.replace(/[^0-9.\-]/g, ''));
+    if (!isNaN(aNum) && !isNaN(bNum)) {
+      return sortAsc ? aNum - bNum : bNum - aNum;
+    }
+    return sortAsc ? aText.localeCompare(bText) : bText.localeCompare(aText);
+  });
+
+  rows.forEach(r => tbody.appendChild(r));
+}
+
+// ── Search / filter ─────────────────────────────────────────────────────────
+
+function filterTable() {
+  const q = document.getElementById('search-input').value.toLowerCase();
+  const rows = document.querySelectorAll('#table-body tr');
+  rows.forEach(row => {
+    const key = (row.dataset.search || '') + ' ' + row.textContent;
+    row.style.display = q === '' || key.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

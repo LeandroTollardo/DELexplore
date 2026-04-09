@@ -43,7 +43,7 @@ from delexplore.analyse.aggregate import (
     get_level_name,
 )
 from delexplore.analyse.poisson import enrichment_with_ci, poisson_ml_enrichment
-from delexplore.analyse.zscore import zscore_enrichment
+from delexplore.analyse.zscore import calculate_mad_zscore, zscore_enrichment
 
 if TYPE_CHECKING:
     pass
@@ -51,7 +51,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 # Supported method names
-_VALID_METHODS = frozenset({"zscore", "poisson_ml"})
+_VALID_METHODS = frozenset({"zscore", "mad_zscore", "poisson_ml"})
 
 
 def merge_replicates(
@@ -126,6 +126,24 @@ def _apply_zscore(
     ])
 
 
+def _apply_mad_zscore(
+    merged_post: pl.DataFrame,
+    merged_ctrl: pl.DataFrame,
+    code_cols: list[str],
+    total_post: int,
+    total_ctrl: int,
+    diversity: int,
+    alpha: float,
+) -> pl.DataFrame:
+    """Inner helper: compute MAD z-score on the merged post counts."""
+    counts_arr = merged_post["count"].to_numpy().astype(float)
+    z_mad = calculate_mad_zscore(counts_arr, total_post, diversity)
+
+    return merged_post.select(code_cols).with_columns([
+        pl.Series("mad_zscore", z_mad),
+    ])
+
+
 def _apply_poisson_ml(
     merged_post: pl.DataFrame,
     merged_ctrl: pl.DataFrame,
@@ -193,7 +211,7 @@ def run_multilevel_enrichment(
         code_cols: All code column names (e.g. ``["code_1", "code_2"]``).
         post_selections: Selection names for the protein/target condition.
         control_selections: Selection names for the blank/control condition.
-        methods: Subset of ``("zscore", "poisson_ml")`` to compute.
+        methods: Subset of ``("zscore", "mad_zscore", "poisson_ml")`` to compute.
         alpha: Significance level for confidence intervals.
 
     Returns:
@@ -254,6 +272,13 @@ def run_multilevel_enrichment(
                 total_post, total_ctrl, diversity, alpha,
             )
             base = base.join(zscore_df, on=level_list, how="left")
+
+        if "mad_zscore" in methods:
+            mad_df = _apply_mad_zscore(
+                merged_post, merged_ctrl, level_list,
+                total_post, total_ctrl, diversity, alpha,
+            )
+            base = base.join(mad_df, on=level_list, how="left")
 
         if "poisson_ml" in methods:
             poisson_df = _apply_poisson_ml(

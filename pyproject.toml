@@ -64,4 +64,5 @@ testpaths = ["tests"]
 addopts = "-v --tb=short"
 markers = [
     "slow: marks tests that run PyDESeq2 NB GLM fitting (deselect with -m 'not slow')",
+    "benchmark: marks slow ground-truth validation tests that exercise the full pipeline (run with: pytest tests/benchmarks/ -v -m benchmark)",
 ]
